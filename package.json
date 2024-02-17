@@ -3,6 +3,7 @@
     "start": "servor --reload"
   },
   "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "servor": "^4.0.2"
   },
   "devDependencies": {
