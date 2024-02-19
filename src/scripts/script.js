@@ -25,6 +25,7 @@ function set_menu_item()
             {
                 el.style.borderBottom = "2px solid #245dcf"
                 el.style.color = "#245dcf"
+                document.getElementsByTagName('title')[0].innerHTML = `Mike D. Pascal - ${el.children[0].innerHTML}`
             }
         })
     })
