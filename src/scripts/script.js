@@ -1,32 +1,50 @@
 
 const navigation = [
-    document.querySelectorAll('.m-op-01'),
-    document.querySelectorAll('.m-op-02'),
-    document.querySelectorAll('.m-op-03'),
-    document.querySelectorAll('.m-op-04'),
-    document.querySelectorAll('.m-op-05')
+    // document.querySelectorAll('.m-op-01'),
+    // document.querySelectorAll('.m-op-02'),
+    // document.querySelectorAll('.m-op-03'),
+    // document.querySelectorAll('.m-op-04'),
+    // document.querySelectorAll('.m-op-05')
+    "home",
+    "about",
+    "skills",
+    "exps",
+    "contact"
 ]
 
-navigation.forEach((els, i)=>{
-    els.forEach((el)=>{
-        el.addEventListener('click', ()=>{
-            select(i)
-        })
-    })
-})
-
-function select(i_)
+function set_menu_item()
 {
-    navigation.forEach((els, i)=>{
-        els.forEach((el)=>{
-            el.setAttribute('class', 'm-op-01 border-transparent text-gray-600 flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium')
-            if(i_ == i)
+    navigation.forEach((item, i)=>{
+        let items = document.querySelectorAll(`.m-op-0${i+1}`)
+        items.forEach((el)=>{
+            el.style.borderBottom = "2px solid transparent"
+            el.style.color = "darkgray"
+            el.style.width = "100%"
+            el.style.textAlign = "left"
+            if(item == window.location.href.split('#')[1])
             {
-                document.getElementsByTagName('title')[0].innerHTML = `Mike D. Pascal - ${el.children[0].innerHTML}`
-                el.setAttribute('class', 'm-op-01 border-indigo-600 text-indigo-600 flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium')
+                el.style.borderBottom = "2px solid #245dcf"
+                el.style.color = "#245dcf"
             }
         })
     })
 }
 
-select(0)
+window.addEventListener('hashchange', ()=>{
+    set_menu_item()
+})
+
+
+window.addEventListener('scroll', ()=>{
+    navigation.forEach(item => ()=>{
+        console.log(window.scrollY, document.getElementById(`${item}`).offsetTop)
+        if(window.scrollY >= document.getElementById(`${item}`).offsetTop)
+        {
+            window.location.href = `#${item}`
+        }
+    })
+})
+
+window.location.href = "#home"
+set_menu_item()
+
