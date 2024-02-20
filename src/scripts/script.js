@@ -35,13 +35,12 @@ window.addEventListener('hashchange', ()=>{
     set_menu_item()
 })
 
-
 window.addEventListener('scroll', ()=>{
-    navigation.forEach(item => ()=>{
-        console.log(window.scrollY, document.getElementById(`${item}`).offsetTop)
-        if(window.scrollY >= document.getElementById(`${item}`).offsetTop)
+    navigation.forEach(item => {
+        if(window.scrollY >= document.getElementById(`${item}`).offsetTop && window.scrollY <= (document.getElementById(`${item}`).offsetTop + document.getElementById(`${item}`).offsetHeight))
         {
-            window.location.href = `#${item}`
+            window.history.pushState(0, 0, `#${item}`)
+            set_menu_item()
         }
     })
 })

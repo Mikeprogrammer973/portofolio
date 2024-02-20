@@ -95,6 +95,10 @@
   aspect-ratio: 2/1;
 }
 
+.aspect-\[1\] {
+  aspect-ratio: 1;
+}
+
 .h-16 {
   height: 4rem;
 }
