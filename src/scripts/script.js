@@ -43,12 +43,21 @@ window.addEventListener('scroll', ()=>{
     navigation.forEach(item => {
         if(window.scrollY >= document.getElementById(`${item}`).offsetTop && window.scrollY <= (document.getElementById(`${item}`).offsetTop + document.getElementById(`${item}`).offsetHeight))
         {
-            window.history.pushState(0, 0, `#${item}`)
-            set_menu_item()
+            if(window.location.href.split('#')[1] != item)
+            {
+                window.history.pushState(0, 0, `#${item}`)
+                set_menu_item()
+            }
         }
     })
 })
 
-window.location.href = "#home"
+document.querySelectorAll('.toggle-theme-btn').forEach(el => {
+    el.addEventListener('click', ()=>{
+        set_menu_item()
+    })
+})
+
+window.history.pushState(0, 0, "#home")
 set_menu_item()
 
