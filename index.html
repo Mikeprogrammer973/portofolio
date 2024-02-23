@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="shortcut icon" href="./src/imgs/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
     <link rel="stylesheet" href="./src/styles/app.css" />
     <script defer type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -132,42 +130,46 @@
         </nav>
       </header>
     </div>
-    <main> 
+    <main class="bg-white dark:bg-gray-800"> 
 
-      <div id="home" class="aspect-[2/1] container mx-auto grid grid-cols-1 md:grid-cols-2 px-3 py-6">
+      <div id="home" class="aspect-[2/1] container mx-auto grid grid-cols-1 md:grid-cols-2 px-3 py-6 text-gray-700 dark:text-gray-200">
         <div id="_name" class="flex items-center justify-center">
           <div>
-            <p>Hello, I'm</p>
-            <h1>Mike D. Pascal</h1>
-            <h4>Web Developer</h4>
-            <p>
+            <p class="text-white bg-blue-950 dark:bg-white dark:text-blue-950 font-semibold py-2 px-6 rounded-none rounded-r-xl rounded-tl-xl inline-block mb-4">Hello, I'm</p>
+            <h1 class="mb-2 text-4xl font-semibold">Mike D. Pascal</h1>
+            <h4 class="mb-5 text-2xl">Web Developer</h4>
+            <p class="flex items-center gap-3 mb-2">
               <span class="material-symbols-outlined">
                 mail
               </span>
-              mikepascal.delta@gmail.com
+              <span>mikepascal.delta@gmail.com</span>
             </p>
-            <p>
+            <p class="flex items-center gap-3 mb-2">
               <span class="material-symbols-outlined">
                 call
               </span>
-              +1 514-299-8184
+              <span>+1 514-299-8184</span>
             </p>
-            <p>
+            <p  class="flex items-center gap-3 mb-5">
               <span class="material-symbols-outlined">
                 pin_drop
               </span>
-              Montreal, Canada
+              <span>Montreal, Canada</span>
             </p>
-            <p>
-              <img src="" alt="_facebook">
-              <img src="" alt="_twitter">
-              <img src="" alt="_github">
-              <img src="" alt="_telegram">
+            <p class="flex gap-4 mb-7">
+              <!-- https://www.pngfind.com/pngs/b/57-579617_facebook-logo-circle-black-transparent-social-media-icons.png -->
+              <img class="w-7 h-7 hover:w-6 hover:h-6 cursor-pointer" x-bind:src="dark ? 'https://cdn.freebiesupply.com/images/large/2x/facebook-logo-circle-transparent.png' : 'https://www.pngfind.com/pngs/b/57-579617_facebook-logo-circle-black-transparent-social-media-icons.png'" alt="_facebook">
+              <!-- https://i.pinimg.com/564x/e0/fc/a0/e0fca0dd47becbf0dbf7152dcb15c1b4.jpg -->
+              <img class="w-7 h-7 hover:w-6 hover:h-6 cursor-pointer" x-bind:src="dark ? 'https://static.vecteezy.com/system/resources/previews/023/986/514/non_2x/instagram-logo-instagram-logo-transparent-instagram-icon-transparent-free-free-png.png' :  'https://i.pinimg.com/564x/e0/fc/a0/e0fca0dd47becbf0dbf7152dcb15c1b4.jpg'" alt="_instagram">
+              <!-- https://cdn-icons-png.flaticon.com/512/25/25231.png -->
+              <img class="w-7 h-7 hover:w-6 hover:h-6 cursor-pointer" x-bind:src=" dark ? 'https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Github-512.png' : 'https://cdn-icons-png.flaticon.com/512/25/25231.png'" alt="_github">
+              <!-- https://pngimg.com/d/telegram_PNG17.png -->
+              <img class="w-7 h-7 hover:w-6 hover:h-6 cursor-pointer" x-bind:src="dark ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png' : 'https://pngimg.com/d/telegram_PNG17.png'" alt="_telegram">
             </p>
           </div>
         </div>
         <div id="_photo" class="flex items-center justify-center">
-          <div class="rounded-full border-orange-800 border-[15px] p-3 w-[23rem] h-[23rem]">
+          <div class="rounded-full border-gray-700 dark:border-gray-200 border-[10px] p-3 w-[15rem] h-[15rem] xl:w-[20rem] xl:h-[20rem]">
             <img class="w-full h-full rounded-full" src="./src/imgs/foto-perfil-mike.png" alt="_profile">
           </div>
         </div>
