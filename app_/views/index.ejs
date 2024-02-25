@@ -21,7 +21,7 @@
       }
     </style>
   </head>
-  <body x-data="{ dark: false }" x-bind:class="dark?'dark':'light'">
+  <body x-data="{ dark: true }" x-bind:class="dark?'dark':'light'">
     <div x-data=" {open: false} " class="bg-white sticky top-0 left-0">
       <!--
         Mobile menu
@@ -175,30 +175,64 @@
         </div>
       </div>
 
-      <div id="about" class="aspect-[2/1] container mx-auto grid gap-3 grid-cols-1 sm-x:grid-cols-2 px-3 pt-4 text-gray-700 dark:text-gray-200">
+      <div id="about" class="aspect-[2/1] container mx-auto grid gap-3 grid-cols-1 sm-x:grid-cols-2 px-3 py-4 text-gray-700 dark:text-gray-200">
         <div class="items-center justify-center hidden sm-x:flex">
           <img x-bind:src="dark ? 'https://cdn-icons-png.flaticon.com/512/10438/10438224.png' : 'https://cdn-icons-png.flaticon.com/512/10438/10438224.png'" alt="__--__">
         </div>
         <div class="flex items-center justify-center">
           <div>
             <h1 class="text-4xl py-6 text-center sm-x:text-left">About Me</h1>
-            <p class="text-xl text-justify">
-              I am an highly motivated and detail-oriented web developer with over 2 years of experience in developing responsive websites and applications.
-              I love to work in groups where everyone can voice their opinions and ideas.
-            </p>
-            <div class="py-4 flex gap-3 flex-wrap">
-              <span class="inline-block px-4 py-2 border-2 rounded-md">HTML</span>
-              <span class="inline-block px-4 py-2 border-2 rounded-md">JAVASCRIPT</span>
-              <span class="inline-block px-4 py-2 border-2 rounded-md">JQUERY</span>
-              <span class="inline-block px-4 py-2 border-2 rounded-md">CSS</span>
-              <span class="inline-block px-4 py-2 border-2 rounded-md">PHP</span>
-              <span class="inline-block px-4 py-2 border-2 rounded-md">LARAVEL</span>
-              <span class="inline-block px-4 py-2 border-2 rounded-md">NODE</span>
-              <span class="inline-block px-4 py-2 border-2 rounded-md">TYPESCRIPT</span>
-              <span class="inline-block px-4 py-2 border-2 rounded-md">TAILWINDCSS</span>
-              <span class="inline-block px-4 py-2 border-2 rounded-md">BOOTSTRAP</span>
-              <span class="inline-block px-4 py-2 border-2 rounded-md">CSHARP</span>
-              <span class="inline-block px-4 py-2 border-2 rounded-md">REACTJS</span>
+            <div class="bg-gray-200 dark:bg-gray-700 rounded-lg p-4">
+              <p class="text-xl text-justify">
+                I am an highly motivated and detail-oriented web developer with over 2 years of experience in developing responsive websites and applications.
+                I love to work in groups where everyone can voice their opinions and ideas.
+              </p>
+              <div class="py-4 flex gap-3 flex-wrap">
+                <span class="inline-block px-4 py-2 border-2 rounded-md">HTML</span>
+                <span class="inline-block px-4 py-2 border-2 rounded-md">JAVASCRIPT</span>
+                <span class="inline-block px-4 py-2 border-2 rounded-md">JQUERY</span>
+                <span class="inline-block px-4 py-2 border-2 rounded-md">CSS</span>
+                <span class="inline-block px-4 py-2 border-2 rounded-md">PHP</span>
+                <span class="inline-block px-4 py-2 border-2 rounded-md">LARAVEL</span>
+                <span class="inline-block px-4 py-2 border-2 rounded-md">NODE</span>
+                <span class="inline-block px-4 py-2 border-2 rounded-md">TYPESCRIPT</span>
+                <span class="inline-block px-4 py-2 border-2 rounded-md">TAILWINDCSS</span>
+                <span class="inline-block px-4 py-2 border-2 rounded-md">BOOTSTRAP</span>
+                <span class="inline-block px-4 py-2 border-2 rounded-md">CSHARP</span>
+                <span class="inline-block px-4 py-2 border-2 rounded-md">REACTJS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1 sm-x:col-span-2">
+          <h1 class="text-4xl py-6 text-center">What I do</h1>
+          <div class="grid grid-cols-1 sm-x:grid-cols-2 gap-10 lg:grid-cols-3 bg-gray-200 dark:bg-gray-700 rounded-lg py-4 px-10">
+            <div>
+              <div class="flex items-center justify-center">
+                <img src="https://www.shareicon.net/download/2015/10/06/112788_design_512x512.png" alt="ui-design">
+              </div>
+              <h1 class="text-center text-xl font-bold mb-6">UI UX Design</h1>
+              <p class="justify-center">
+                Seamless and meaningful user experience, intuitive and aesthetically-pleasing interfaces and interactive elements.
+              </p>
+            </div>
+            <div>
+              <div class="flex items-center justify-center">
+                <img src="https://cdn-icons-png.freepik.com/512/9517/9517119.png" alt="ui-design">
+              </div>
+              <h1 class="text-center text-xl font-bold mb-6">Web Development</h1>
+              <p class="justify-center">
+                From developing a simple single static page of plain text to complex web applications, electronic businesses, and social network services.
+              </p>
+            </div>
+            <div class="col-span-1 sm-x:col-span-2 lg:col-span-1">
+              <div class="flex items-center justify-center">
+                <img src="https://cdn0.iconfinder.com/data/icons/elpis/144/App_Development-512.png" alt="ui-design">
+              </div>
+              <h1 class="text-center text-xl font-bold mb-6">App Development</h1>
+              <p class="justify-center">
+                Software for smartphones, tablets and digital assistants, most commonly for the Android and iOS operating systems.
+              </p>
             </div>
           </div>
         </div>
