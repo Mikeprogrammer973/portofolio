@@ -11,18 +11,120 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script defer type="module" src="./scripts/script.js"></script>
     <style>
+      @keyframes teste {
+        0%, 100% {
+          transform: translateY(-2%);
+          animation-timing-function: cubic-bezier(0.8,0,1,1);
+        }
+        50% {
+            transform: none;
+            animation-timing-function: cubic-bezier(0,0,0.2,1);
+        }
+      }
       select{
         background-color: inherit;
         padding: 2px;
         border: none;
         outline: double currentColor;
         border-radius: 7px;
-        /*color: #5984c4b7;*/
+      }
+      .skl-p-c {
+        height: 150px;
+        width: 150px;
+        position: relative;
+        overflow: hidden;
+        margin: 20px;
+        border-radius: 50%;
+        transform: rotate3d(0, 0, 1, 0.001deg); /* clear artifacts*/
+      }
+      .skl-p-c:before,
+      .skl-p-c:after {
+        content: " ";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 150px;
+        height: 150px;
+        clip: rect(0px, 75px, 150px, 0px);
+        background-color: inherit;
+        transform: rotate3d(0, 0, 1, 0deg);
+        z-index: 2;
+      }
+      .spin-c-1:before,
+      .spin-c-1:after {
+        animation: 2s spin-c-1 linear 4s forwards;
+      }
+      .spin-c-2:before,
+      .spin-c-2:after {
+        animation: 2s spin-c-2 linear 4s forwards;
+      }
+      .spin-c-3:before,
+      .spin-c-3:after {
+        animation: 2s spin-c-3 linear 4s forwards;
+      }
+      .spin-c-4:before,
+      .spin-c-4:after {
+        animation: 2s spin-c-4 linear 4s forwards;
+      }
+      .skl-p-c:after {
+        content: " ";
+        background: currentColor;
+        z-index: 1;
+        animation: 2s spin linear 2s forwards;
+      }
+      
+      @keyframes spin {
+        from {
+          transform: rotate3d(0, 0, 1, -0deg);
+        }
+        to {
+          transform: rotate3d(0, 0, 1, -180deg);
+        }
+      }
+      @keyframes spin-c-1 {
+        from {
+          background: currentColor;
+          transform: rotate3d(0, 0, 1, -180deg);
+        }
+        to {
+          background: currentColor;
+          transform: rotate3d(0, 0, 1, -340deg);
+        }
+      }
+      @keyframes spin-c-2 {
+        from {
+          background: currentColor;
+          transform: rotate3d(0, 0, 1, -180deg);
+        }
+        to {
+          background: currentColor;
+          transform: rotate3d(0, 0, 1, -329deg);
+        }
+      }
+      @keyframes spin-c-3 {
+        from {
+          background: currentColor;
+          transform: rotate3d(0, 0, 1, -180deg);
+        }
+        to {
+          background: currentColor;
+          transform: rotate3d(0, 0, 1, -350deg);
+        }
+      }
+      @keyframes spin-c-4 {
+        from {
+          background: currentColor;
+          transform: rotate3d(0, 0, 1, -180deg);
+        }
+        to {
+          background: currentColor;
+          transform: rotate3d(0, 0, 1, -310deg);
+        }
       }
     </style>
   </head>
   <body x-data="{ dark: true }" x-bind:class="dark?'dark':'light'">
-    <div x-data=" {open: false} " class="bg-white sticky top-0 left-0">
+    <div x-data=" {open: false} " class="bg-white sticky top-0 left-0 z-20">
       <!--
         Mobile menu
 
@@ -238,7 +340,122 @@
         </div>
       </div>
 
-      <div id="skills" class="bg-blue-700 aspect-[2/1] container mx-auto">SKILLS</div>
+      <div id="skills" class="aspect-[16/3] container mx-auto grid items-center justify-center grid-cols-1 px-3 py-4 text-gray-700 dark:text-gray-200">
+        <div>
+          <h1 class="text-center font-bold text-xl tracking-widest py-4">Technical Skills</h1>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-7">
+            
+            <div>
+              <div class="py-4">
+                <h1 class="text-lg pl-3 py-3">HTML</h1>
+                <div class="bg-slate-700 dark:bg-slate-200 rounded-xl border-2 text-sm">
+                  <div class="bg-blue-400 dark:bg-blue-700 w-[95%] rounded-xl m-[0px] text-center font-bold">95%</div>
+                </div>
+              </div>
+              <div class="py-4">
+                <h1 class="text-lg pl-3 py-3">CSS</h1>
+                <div class="bg-slate-700 dark:bg-slate-200 rounded-xl border-2 text-sm">
+                  <div class="bg-blue-400 dark:bg-blue-700 w-[75%] rounded-xl m-[0px] text-center font-bold">75%</div>
+                </div>
+              </div>
+              <div class="py-4">
+                <h1 class="text-lg pl-3 py-3">Javascript</h1>
+                <div class="bg-slate-700 dark:bg-slate-200 rounded-xl border-2 text-sm">
+                  <div class="bg-blue-400 dark:bg-blue-700 w-[99%] rounded-xl m-[0px] text-center font-bold">99%</div>
+                </div>
+              </div>
+              <div class="py-4">
+                <h1 class="text-lg pl-3 py-3">PHP</h1>
+                <div class="bg-slate-700 dark:bg-slate-200 rounded-xl border-2 text-sm">
+                  <div class="bg-blue-400 dark:bg-blue-700 w-[99%] rounded-xl m-[0px] text-center font-bold">99%</div>
+                </div>
+              </div>
+              <div class="py-4">
+                <h1 class="text-lg pl-3 py-3">Node</h1>
+                <div class="bg-slate-700 dark:bg-slate-200 rounded-xl border-2 text-sm">
+                  <div class="bg-blue-400 dark:bg-blue-700 w-[90%] rounded-xl m-[0px] text-center font-bold">90%</div>
+                </div>
+              </div>
+              <div class="py-4">
+                <h1 class="text-lg pl-3 py-3">Laravel</h1>
+                <div class="bg-slate-700 dark:bg-slate-200 rounded-xl border-2 text-sm">
+                  <div class="bg-blue-400 dark:bg-blue-700 w-[65%] rounded-xl m-[0px] text-center font-bold">65%</div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="py-4">
+                <h1 class="text-lg pl-3 py-3">Jquery</h1>
+                <div class="bg-slate-700 dark:bg-slate-200 rounded-xl border-2 text-sm">
+                  <div class="bg-blue-400 dark:bg-blue-700 w-[90%] rounded-xl m-[0px] text-center font-bold">90%</div>
+                </div>
+              </div>
+              <div class="py-4">
+                <h1 class="text-lg pl-3 py-3">ReactJS</h1>
+                <div class="bg-slate-700 dark:bg-slate-200 rounded-xl border-2 text-sm">
+                  <div class="bg-blue-400 dark:bg-blue-700 w-[95%] rounded-xl m-[0px] text-center font-bold">95%</div>
+                </div>
+              </div>
+              <div class="py-4">
+                <h1 class="text-lg pl-3 py-3">Bootstrap</h1>
+                <div class="bg-slate-700 dark:bg-slate-200 rounded-xl border-2 text-sm">
+                  <div class="bg-blue-400 dark:bg-blue-700 w-[80%] rounded-xl m-[0px] text-center font-bold">80%</div>
+                </div>
+              </div>
+              <div class="py-4">
+                <h1 class="text-lg pl-3 py-3">Tailwindcss</h1>
+                <div class="bg-slate-700 dark:bg-slate-200 rounded-xl border-2 text-sm">
+                  <div class="bg-blue-400 dark:bg-blue-700 w-[97%] rounded-xl m-[0px] text-center font-bold">97%</div>
+                </div>
+              </div>
+              <div class="py-4">
+                <h1 class="text-lg pl-3 py-3">C#</h1>
+                <div class="bg-slate-700 dark:bg-slate-200 rounded-xl border-2 text-sm">
+                  <div class="bg-blue-400 dark:bg-blue-700 w-[90%] rounded-xl m-[0px] text-center font-bold">90%</div>
+                </div>
+              </div>
+              <div class="py-4">
+                <h1 class="text-lg pl-3 py-3">Typescript</h1>
+                <div class="bg-slate-700 dark:bg-slate-200 rounded-xl border-2 text-sm">
+                  <div class="bg-blue-400 dark:bg-blue-700 w-[95%] rounded-xl m-[0px] text-center font-bold">95%</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div>
+          <h1 class="text-center font-bold text-xl tracking-widest py-4 mt-10">Professional Skills</h1>
+          <div class="flex items-center justify-center flex-wrap">
+
+            <div class="py-4 text-center">
+              <div class="skl-p-c spin-c-1 p-2">
+              </div>
+              <h1 class="text-lg pl-3 py-3">Creativity</h1>
+            </div>
+
+            <div class="py-4 text-center">
+              <div class="skl-p-c spin-c-2 p-2">
+              </div>
+              <h1 class="text-lg pl-3 py-3">Team Work</h1>
+            </div>
+
+            <div class="py-4 text-center">
+              <div class="skl-p-c spin-c-3 p-2">
+              </div>
+              <h1 class="text-lg pl-3 py-3">Communication</h1>
+            </div>
+
+            <div class="py-4 text-center">
+              <div class="skl-p-c spin-c-4 p-2">
+              </div>
+              <h1 class="text-lg pl-3 py-3">Project Management</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
 
       <div id="exps" class="bg-blue-200 aspect-[2/1] container mx-auto">EXPERIENCES</div>
 

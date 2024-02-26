@@ -46,6 +46,10 @@ window.addEventListener('scroll', ()=>{
             if(window.location.href.split('#')[1] != item)
             {
                 window.history.pushState(0, 0, `#${item}`)
+                document.getElementById(`${item}`).style.animation = 'teste 2s linear infinite'
+                setTimeout(()=>{
+                    document.getElementById(`${item}`).style.animation = 'none'
+                }, 2000)
                 set_menu_item()
             }
         }
