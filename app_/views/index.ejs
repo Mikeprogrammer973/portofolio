@@ -283,7 +283,7 @@
         </div>
         <div class="flex items-center justify-center">
           <div>
-            <h1 class="text-4xl py-6 text-center sm-x:text-left">About Me</h1>
+            <h1 class="text-4xl py-6 text-center sm-x:text-left">About me</h1>
             <div class="bg-gray-200 dark:bg-gray-700 rounded-lg p-4">
               <p class="text-xl text-justify">
                 I am an highly motivated and detail-oriented web developer with over 2 years of experience in developing responsive websites and applications.
@@ -342,7 +342,7 @@
 
       <div id="skills" class="aspect-[16/3] container mx-auto grid items-center justify-center grid-cols-1 px-3 py-4 text-gray-700 dark:text-gray-200">
         <div>
-          <h1 class="text-center font-bold text-xl tracking-widest py-4">Technical Skills</h1>
+          <h1 class="text-4xl py-6 text-center">Technical Skills</h1>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-7">
             
             <div class="grid grid-cols-2 gap-3">
@@ -432,7 +432,7 @@
           </div>
         </div>
         <div>
-          <h1 class="text-center font-bold text-xl tracking-widest py-4 mt-10">Professional Skills</h1>
+          <h1 class="text-4xl py-6 text-center mt-10">Professional Skills</h1>
           <div class="flex items-center justify-center flex-wrap">
 
             <div class="py-4 text-center">
@@ -466,7 +466,7 @@
       <div id="exps" class="aspect-[2/1] container mx-auto grid items-center justify-center grid-cols-1 px-3 py-4 text-gray-700 dark:text-gray-200">
         <div class="grid gap-3 grid-cols-1 sm-x:grid-cols-2">
           <div>
-            <h1 class="text-center font-bold text-xl tracking-widest py-4">Education</h1>
+            <h1 class="text-4xl py-6 text-center">Education</h1>
             <div class="flex items-center justify-center flex-wrap">
               <div class="bg-gray-200 dark:bg-gray-700 rounded-lg p-4">
                 <h1 class="text-2xl">IT Techniques from <span class="font-extralight">Cégep André-Laurendau</span></h1>
@@ -478,7 +478,7 @@
             </div>
           </div>
           <div>
-            <h1 class="text-center font-bold text-xl tracking-widest py-4">Projects</h1>
+            <h1 class="text-4xl py-6 text-center">Projects</h1>
             <div class="flex gap-3 items-center justify-center flex-wrap">
               <div class="bg-gray-200 dark:bg-gray-700 rounded-lg py-4 px-16 my-4">
                 <div class="flex gap-3 items-center">
@@ -502,14 +502,14 @@
           </div>
         </div>
         <div class="text-center" x-data="{ count: 1 }">
-          <h1 class="text-center font-bold text-xl tracking-widest py-4 my-10">Clients Reviews</h1>
+          <h1 class="text-4xl py-6 text-center my-10">Client Reviews</h1>
           <div class="flex gap-3 justify-between items-center">
             <button @click="count == 1 ? count = 3 : count--" class="sm-x:text-4xl text-xl font-semibold px-4 py-2 rounded-lg bg-transparent border-2 border-gray-300 dark:border-gray-700 hover:bg-gray-300 dark:hover:bg-gray-700"><</button>
             <div class="flex items-center justify-around">
               <div x-show="count == 1 ? true : false" class="max-w-60 py-3 px-5 rounded-lg bg-gray-500 dark:bg-gray-900">
                 <div class="flex items-center justify-center"><img class="sm-x:size-28 size-20 rounded-full p-1 border-2 border-green-500 dark:border-green-400" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBOn9shF9kc5vPqgA30DXU0prx5-aYyh28Rw&usqp=CAU" alt="perfil-client-01"></div>
                 <p class="text-center justify-center py-2 text-gray-200 dark:text-gray-400"><q>
-                  Took care of my insurance needs. By far the best website developer. Honest and trustworthy. Thanks Mike. We appreciate your hard work! Highly recommended!
+                  Took care of all my needs. By far the best website developer. Honest and trustworthy. Thanks Mike. We appreciate your hard work! Highly recommended!
                 </q></p>
                 <h1 class="text-center text-2xl text-gray-100 dark:text-gray-300">Francis Yanxi</h1>
               </div>
@@ -537,7 +537,81 @@
         </div>
       </div>
 
-      <div id="contact" class="bg-blue-600 aspect-[1] container mx-auto">CONTACT</div>
+      <div id="contact" class="aspect-[16/9] container mx-auto grid items-center justify-center grid-cols-1 px-3 py-4 text-gray-700 dark:text-gray-200">
+        <div>
+          <h1 class="text-4xl py-6 mb-5 text-center tracking-wider">Contact me</h1>
+          <div class="flex items-center justify-around gap-3 flex-wrap">
+            <div class="rounded-lg border-2 border-gray-300 dark:border-transparent dark:bg-slate-600 text-center w-72 py-5">
+              <div class="material-symbols-outlined">pin_drop</div>
+              <h2 class="py-4 text-2xl">Address</h2>
+              <div>
+                <p>9199, Rue Airlie, Lasalle, Montréal QC</p>
+              </div>
+            </div>
+            <div class="rounded-lg border-2 border-gray-300 dark:border-transparent dark:bg-slate-600 text-center w-72 py-5">
+              <div class="material-symbols-outlined">mail</div>
+              <h2 class="py-4 text-2xl">Email</h2>
+              <div>
+                <p><a href="mailto:mikepascal.delta@gmail.com">mikepascal.delta@gmail.com</a></p>
+                <p><a href="mailto:antiquesclub@gmail.com">antiquesclub@gmail.com</a></p>
+              </div>
+            </div>
+            <div class="rounded-lg border-2 border-gray-300 dark:border-transparent dark:bg-slate-600 text-center w-72 py-5">
+              <div class="material-symbols-outlined">call</div>
+              <h2 class="py-4 text-2xl">Phone</h2>
+              <div>
+                <p>+1 514 299 81 84</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid gap-5 py-10 my-5 grid-cols-1 md:grid-cols-2">
+            <div>
+              <form action="" method="post">
+                <p class="grid gap-3 sm:grid-cols-1 md:grid-cols-2">
+                  <input class="bg-transparent rounded-md outline-none focus:ring-4 ring-1 py-1 px-2" type="text" name="name" id="firstname" placeholder="First Nane" required>
+                  <input class="bg-transparent rounded-md outline-none focus:ring-4 ring-1 py-1 px-2" type="text" name="lastname" id="lastname" placeholder="Last Name" required>
+                  <input class="bg-transparent rounded-md outline-none focus:ring-4 ring-1 py-1 px-2 col-span-1 md:col-span-2" type="email" name="email" id="email" placeholder="My Email" required >
+                </p>
+                <p>
+                  <textarea class="bg-transparent rounded-md outline-none focus:ring-4 ring-1 py-1 px-2 w-full my-4" name="msg" id="msg" rows="10" placeholder="My message..." required></textarea>
+                </p>
+                <p>
+                  <button class="w-full py-2 px-5 border-2 border-blue-400 rounded-md text-xl font-light hover:text-blue-600 hover:font-semibold">Send message</button>
+                </p>
+              </form>
+            </div>
+            <div>
+              <div id="map" style="width:100%;height:400px;" class="rounded-lg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+          key: "AIzaSyDGpdMFzdyJkSOP9YUSgpTH7apoJVQ2ZQA",
+          v: "weekly",
+          // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+          // Add other bootstrap parameters as needed, using camel case.
+        });
+      </script>
+
+      <script>
+        let map;
+
+        async function initMap() {
+          const { Map } = await google.maps.importLibrary("maps");
+
+          map = new Map(document.getElementById("map"), {
+            center: { lat: -34.397, lng: 150.644 },
+            zoom: 8,
+          });
+        }
+
+        initMap();
+      </script>
+
+      <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGpdMFzdyJkSOP9YUSgpTH7apoJVQ2ZQA&callback=myMap"></script> -->
 
     </main>
   </body>
