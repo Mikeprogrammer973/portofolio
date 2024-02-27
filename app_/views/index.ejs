@@ -271,7 +271,7 @@
           </div>
         </div>
         <div id="_photo" class="flex items-center justify-center">
-          <div class="rounded-full border-gray-700 dark:border-gray-200 border-[10px] p-3 w-[15rem] h-[15rem] xl:w-[20rem] xl:h-[20rem]">
+          <div class="rounded-full border-gray-700 dark:border-gray-200 border-[6px] xl:border-[10px] p-3 w-[12rem] h-[12rem] xl:w-[20rem] xl:h-[20rem]">
             <img class="w-full h-full rounded-full" src="./imgs/foto-perfil-mike.png" alt="_profile">
           </div>
         </div>
@@ -501,8 +501,39 @@
             </div>
           </div>
         </div>
-        <div>
-          <h1 class="text-center font-bold text-xl tracking-widest py-4 mt-10">Clients Reviews</h1>
+        <div class="text-center" x-data="{ count: 1 }">
+          <h1 class="text-center font-bold text-xl tracking-widest py-4 my-10">Clients Reviews</h1>
+          <div class="flex gap-3 justify-between items-center">
+            <button @click="count == 1 ? count = 3 : count--" class="sm-x:text-4xl text-xl font-semibold px-4 py-2 rounded-lg bg-transparent border-2 border-gray-300 dark:border-gray-700 hover:bg-gray-300 dark:hover:bg-gray-700"><</button>
+            <div class="flex items-center justify-around">
+              <div x-show="count == 1 ? true : false" class="max-w-60 py-3 px-5 rounded-lg bg-gray-500 dark:bg-gray-900">
+                <div class="flex items-center justify-center"><img class="sm-x:size-28 size-20 rounded-full p-1 border-2 border-green-500 dark:border-green-400" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBOn9shF9kc5vPqgA30DXU0prx5-aYyh28Rw&usqp=CAU" alt="perfil-client-01"></div>
+                <p class="text-center justify-center py-2 text-gray-200 dark:text-gray-400"><q>
+                  Took care of my insurance needs. By far the best website developer. Honest and trustworthy. Thanks Mike. We appreciate your hard work! Highly recommended!
+                </q></p>
+                <h1 class="text-center text-2xl text-gray-100 dark:text-gray-300">Francis Yanxi</h1>
+              </div>
+
+              <div x-show="count == 2 ? true : false" class="max-w-60 py-3 px-5 rounded-lg bg-gray-500 dark:bg-gray-900">
+                <div class="flex items-center justify-center"><img class="sm-x:size-28 size-20 rounded-full p-1 border-2 border-green-500 dark:border-green-400" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbIhi9l4npCGPNWMAc6szDbxp75kjB3c0R5w&usqp=CAU" alt="perfil-client-01"></div>
+                <p class="text-center justify-center py-2 text-gray-200 dark:text-gray-400"><q>
+                  Mike was very professional and it was great to work with him. He always arrives on time and finishes the job when he promises. His work was excellent. I would definitely use him again and recommend him to anyone in need of an incredibly well-done portfolio.
+                </q></p>
+                <h1 class="text-center text-2xl text-gray-100 dark:text-gray-300">Ana Fraust</h1>
+              </div>
+
+              <div x-show="count == 3 ? true : false" class="max-w-60 py-3 px-5 rounded-lg bg-gray-500 dark:bg-gray-900">
+                <div class="flex items-center justify-center"><img class="sm-x:size-28 size-20 rounded-full p-1 border-2 border-green-500 dark:border-green-400" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZd8IFhFAzVB_AdUsDwZMmRzafOAhzsQ_JlQ&usqp=CAU" alt="perfil-client-01"></div>
+                <p class="text-center justify-center py-2 text-gray-200 dark:text-gray-400"><q>
+                  Mike did a great job building my online sales website!.
+                </q></p>
+                <h1 class="text-center text-2xl text-gray-100 dark:text-gray-300">Yana Grax</h1>
+              </div>
+            </div>
+            <button @click="count == 3 ? count = 1 : count++" class="sm-x:text-4xl text-xl font-semibold px-4 py-2 rounded-lg bg-transparent border-2 border-gray-300 dark:border-gray-700 hover:bg-gray-300 dark:hover:bg-gray-700">></button>
+          </div>
+          <p><button class="py-4 text-xl"><span x-text="count"></span> / 3</button></p>
+          <p><button class="text-lg font-medium text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 hover:font-semibold">Leave a review</button></p>
         </div>
       </div>
 
