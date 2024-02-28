@@ -1,3 +1,3 @@
 # portofolio
 
-https://mike-d-pascal.onrender.com/
+https://mike-d-pascal.onrender.com/profile
