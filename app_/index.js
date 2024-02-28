@@ -9,6 +9,8 @@ app.use(express.static(path.join(__dirname, 'assets')))
 
 app.get('*', indexView)
 
+// app.get('/admin')
+
 app.listen(3000, ()=>{
     console.log(`Server listening...`)
 })
