@@ -12,6 +12,9 @@ app.use('/profile', web)
 app.get('*', (req, res)=>{
     res.redirect('profile/page_not_found')
 })
+app.post('*', (req, res)=>{
+    res.redirect('/page_not_found')
+})
 
 app.listen(3000 || process.env.PORT, ()=>{
     console.log(`Server listening...`)
