@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, 'assets')))
 app.use('/profile', web)
 
 app.get('/', (req, res)=>{
-    res.redirect('/profile')
+    //res.redirect('/profile')
 })
 
 app.get('*', (req, res)=>{
