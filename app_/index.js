@@ -9,8 +9,12 @@ app.use(express.static(path.join(__dirname, 'assets')))
 
 app.use('/profile', web)
 
+app.get('/', (req, res)=>{
+    res.redirect('/profile')
+})
+
 app.get('*', (req, res)=>{
-    res.render('system_notice/page_not_found')
+    res.redirect('profile/page_not_found')
 })
 
 app.listen(3000, ()=>{
