@@ -10,13 +10,13 @@ app.use(express.static(path.join(__dirname, 'assets')))
 app.use('/profile', web)
 
 app.get('/', (req, res)=>{
-    //res.redirect('/profile')
+    res.redirect('/profile')
 })
 
 app.get('*', (req, res)=>{
     res.redirect('profile/page_not_found')
 })
 
-app.listen(3000, ()=>{
+app.listen(3033 || process.env.PORT, ()=>{
     console.log(`Server listening...`)
 })
