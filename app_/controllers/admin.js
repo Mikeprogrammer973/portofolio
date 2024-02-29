@@ -4,15 +4,21 @@ const adminIndexView = (req, res)=>{
 }
 
 const admin_login_get = (req, res)=>{
-    res.render('admin/login', {})
+    if(!global.logged)
+    {
+        res.render('admin/login', {})
+    }
+    res.redirect('dashboard')
 }
 
 const admin_login_post = (req, res)=>{
-    
+    console.log(req)
+    global.logged = true
+    res.redirect('dashboard')
 }
 
 const notAuth = (req, res)=>{
-    res.render('admin/page_not_auth')
+    res.render('system_notice/route_not_auth')
 }
 
 module.exports = { adminIndexView, notAuth, admin_login_get, admin_login_post }

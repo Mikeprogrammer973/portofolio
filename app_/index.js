@@ -5,10 +5,13 @@ const web = require('./routes/web')
 
 global.logged = false
 global.token = null
+global.access = { admin: null, home: null, contact: null, about: null, experience: null, project: null, skills: null, review: null }
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, 'assets')))
+
+app.use(express.urlencoded({extended: true}))
 
 app.use('/profile', web)
 

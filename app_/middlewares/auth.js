@@ -35,7 +35,14 @@ const verifyLogin = async (req, res, next)=>{
     }
     else
     {
-        next()
+        if(global.access.admin == "705587565") // comparaison avec la base de données
+        {
+            next()
+        }
+        else
+        {
+            res.redirect('/profile/admin/page_not_auth')
+        }
     }
 }
 
