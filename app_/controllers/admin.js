@@ -1,6 +1,18 @@
 
-const indexView = (req, res)=>{
-    res.render('admin_dashboard', {})
+const adminIndexView = (req, res)=>{
+    res.render('admin/dashboard', {})
 }
 
-module.exports = { indexView }
+const admin_login_get = (req, res)=>{
+    res.render('admin/login', {})
+}
+
+const admin_login_post = (req, res)=>{
+    
+}
+
+const notAuth = (req, res)=>{
+    res.render('admin/page_not_auth')
+}
+
+module.exports = { adminIndexView, notAuth, admin_login_get, admin_login_post }
