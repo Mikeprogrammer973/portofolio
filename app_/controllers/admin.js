@@ -6,7 +6,8 @@ const adminIndexView = (req, res)=>{
 
 const admin_login_get = (req, res)=>{
     global.logged = false
-    res.render('admin/login', {})
+    global.access.admin = null
+    res.render('admin/login', { msg: global.msg.login })
 }
 
 const notAuth = (req, res)=>{

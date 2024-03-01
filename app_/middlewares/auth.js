@@ -1,4 +1,5 @@
-const { verify } = require('jsonwebtoken')
+const { verify, sign } = require('jsonwebtoken')
+const Admin = require('../models/admin')
 
 const verifyToken = async (req, res, next)=>{
     const token = req.body.token || req.query.token || req.headers['x-access-token']
@@ -29,14 +30,22 @@ const verifyToken = async (req, res, next)=>{
 }
 
 const verifyLogin = async (req, res, next)=>{
-    if(req.body.access == "123" && req.body.password == "000")
+    global.msg.login.active = false
+    const { access, password } = req.body
+    const adm = await Admin.findOne({access: access, password: password})
+    if(adm != null && (access == adm.access && password == adm.password))
     {
         global.logged = true
-        global.access.admin = req.body.access
-        res.redirect('/profile/admin/dashboard') 
+        adm.access = Math.round(Math.random()*1000000)
+        adm.password = Math.round(Math.random()*1000000)
+        adm.token = sign({access : adm.access}, process.env.TOKEN_SECRET)
+        await adm.save()
+        global.access.admin = adm.access
+        res.redirect('/profile/admin/dashboard')
     }
     else
     {
+        global.msg.login.active = true
         res.redirect('/profile/admin/login')
     }
 }
@@ -48,7 +57,8 @@ const verifyLoginStatus = async (req, res, next)=>{
     }
     else
     {
-        if(global.access.admin == "123") // comparaison avec la base de données
+        const adm = await Admin.findOne({access: global.access.admin})
+        if(adm != null) // comparaison avec la base de données
         {
             next()
         }
