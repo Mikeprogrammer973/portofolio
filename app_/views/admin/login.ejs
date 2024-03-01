@@ -5,29 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../imgs/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../styles/app.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Admin | Login</title>
-    <style>
-        #btn-login:hover{
-            color: lightgrey;
-            border-color: lightgrey;
-        }
-        input:focus{
-            border: 1px solid rgb(48, 104, 224);
-        }
-    </style>
 </head>
 <body>
-    <div style="background-color: rgba(6, 32, 87, 0.76);" class="w-full h-full fixed flex items-center justify-center">
-        <form style="background-color: rgba(3, 19, 53, 0.856);padding: 30px;" class="rounded-lg shadow-xl" action="/profile/admin/login" method="post">
-            <p>
-                <input class="bg-transparent p-2 text-gray-200 ring-1 hover:ring-blue-800 rounded-md my-4 ring-blue-500 outline-none" type="password" name="access" placeholder="Access code" required>
+    <div class="w-full h-full bg-gray-800 fixed flex items-center justify-center">
+        <form class="rounded-lg shadow-xl px-4 py-8 bg-white" action="/profile/admin/login" method="post">
+            <p class="flex items-center justify-center mt-[-1rem] mb-4">
+                <img class="size-16" src="../../imgs/logo.png" alt="logo">
             </p>
             <p>
-                <input class="bg-transparent p-2 text-gray-200 ring-1 hover:ring-blue-800 rounded-md my-4 ring-blue-500 outline-none" type="password" name="password" placeholder="Password" required>
+                <input class="bg-transparent p-2 text-gray-600 ring-1 focus:ring-blue-700 focus:ring-2 rounded-md my-2 ring-blue-500 outline-none" type="password" name="access" placeholder="Access code" required>
             </p>
             <p>
-                <button id="btn-login" class="rounded-md py-2 px-4 my-2 border-2 border-gray-600 text-gray-500 w-full">Sign in</button>
+                <input class="bg-transparent p-2 text-gray-600 ring-1 focus:ring-blue-700 focus:ring-2 rounded-md my-2 ring-blue-500 outline-none" type="password" name="password" placeholder="Password" required>
+            </p>
+            <p>
+                <button id="btn-login" class="rounded-md py-2 px-4 my-4 border-2 border-blue-600 text-blue-500 hover:border-blue-700 hover:text-blue-700 w-full">Sign in</button>
             </p>
         </form>
     </div>
