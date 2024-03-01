@@ -1,6 +1,6 @@
 const express = require('express')
 const { webIndexView , notFound} = require('../controllers/web')
-const { verifyToken, verifyLogin } = require('../middlewares/auth')
+const { verifyToken, verifyLogin, verifyLoginStatus } = require('../middlewares/auth')
 const { adminIndexView, notAuth, admin_login_get, admin_login_post } = require('../controllers/admin')
 
 const router = express.Router()
@@ -9,9 +9,9 @@ const router = express.Router()
 router.get('/', webIndexView)
 
 // admin
-router.get('/admin/dashboard', verifyLogin, adminIndexView)
+router.get('/admin/dashboard', verifyLoginStatus, adminIndexView)
 router.get('/admin/login', admin_login_get)
-router.post('/admin/login', admin_login_post)
+router.post('/admin/login', verifyLogin)
 router.get('/admin/page_not_auth', notAuth)
 
 // page not found

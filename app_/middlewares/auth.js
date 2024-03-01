@@ -29,13 +29,26 @@ const verifyToken = async (req, res, next)=>{
 }
 
 const verifyLogin = async (req, res, next)=>{
+    if(req.body.access == "123" && req.body.password == "000")
+    {
+        global.logged = true
+        global.access.admin = req.body.access
+        res.redirect('/profile/admin/dashboard') 
+    }
+    else
+    {
+        res.redirect('/profile/admin/login')
+    }
+}
+
+const verifyLoginStatus = async (req, res, next)=>{
     if(!global.logged)
     {
         res.redirect('/profile/admin/login')
     }
     else
     {
-        if(global.access.admin == "705587565") // comparaison avec la base de données
+        if(global.access.admin == "123") // comparaison avec la base de données
         {
             next()
         }
@@ -46,4 +59,4 @@ const verifyLogin = async (req, res, next)=>{
     }
 }
 
-module.exports =  {verifyToken, verifyLogin}
+module.exports =  {verifyToken, verifyLogin, verifyLoginStatus}
