@@ -16,7 +16,7 @@ mongoose.connect(database)
 global.logged = false
 global.token = null
 global.msg = { login: { active: false, content: "Access code or password wrong!" } }
-global.access = { admin: null, home: null, contact: null, about: null, experience: null, project: null, skills: null, review: null }
+global.access = { admin: null, home: null, contact: null, about: null, experience: null, project: null, skills: null }
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')

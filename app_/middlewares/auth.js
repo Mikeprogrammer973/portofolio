@@ -11,9 +11,9 @@ const verifyToken = async (req, res, next)=>{
     {
         try
         {
-            const decoded = verify(token, 'H90Jkk@hjuj#okk*jhh854&7')
+            const decoded = verify(token, process.env.TOKEN_SECRET)
             req.user = decoded
-            if( 2 > 1) // comparaison avec la base de données
+            if((await Admin.findOne({access: req.user["access"]})) != null) // comparaison avec la base de données
             {
                 next()
             }

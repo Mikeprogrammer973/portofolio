@@ -1,7 +1,7 @@
 const formidable = require('formidable')
 
 const adminIndexView = (req, res)=>{
-    res.render('admin/dashboard', {})
+    res.render('admin/dashboard', {access: global.access})
 }
 
 const admin_login_get = (req, res)=>{
