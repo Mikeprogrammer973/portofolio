@@ -1,7 +1,10 @@
 const formidable = require('formidable')
+const Admin = require('../models/admin')
+
+const admin = ()=>{ return Admin.findOne({access: global.access.admin})}
 
 const adminIndexView = (req, res)=>{
-    res.render('admin/dashboard', {access: global.access})
+    res.render('admin/dashboard', {})
 }
 
 const aboutIndexView = (req, res)=>{
@@ -9,7 +12,11 @@ const aboutIndexView = (req, res)=>{
 }
 
 const homeIndexView = (req, res)=>{
-    res.render('home/index', {access: global.access})
+    admin().then(admin => {
+        res.render('home/index', {admin: admin})
+    }).catch(err =>{
+        res.send(err)
+    })
 }
 
 const contactIndexView = (req, res)=>{

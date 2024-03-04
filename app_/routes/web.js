@@ -14,6 +14,7 @@ router.get('/admin/login', admin_login_get)
 router.post('/admin/login', login)
 
 router.get('/admin/home', verifyLoginStatus, homeIndexView)
+// router.post('/admin/home', verifyToken, )
 
 router.get('/admin/about', verifyLoginStatus, aboutIndexView)
 

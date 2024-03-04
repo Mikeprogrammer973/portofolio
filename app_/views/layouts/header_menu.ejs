@@ -1,11 +1,11 @@
 
-<div x-data=" {open: false} " class="bg-white sticky top-0 left-0 z-20">
+<div x-data=" {open: false} " class="sticky top-0 left-0 z-20">
     <!--
     Mobile menu
 
     Off-canvas menu for mobile, show/hide based on off-canvas menu state.
     -->
-    <div x-show="open" class="relative z-40 block sm-x:hidden" role="dialog" aria-modal="true">
+    <div x-show="open" class="relative z-40 block sm:hidden" role="dialog" aria-modal="true">
     <!--
         Off-canvas menu backdrop, show/hide based on off-canvas menu state.
 
@@ -19,9 +19,9 @@
     <div class="fixed inset-0 bg-black bg-opacity-25"></div>
 
     <div class="fixed inset-0 z-40 flex">
-        <div @click.outside="open = false" class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white dark:bg-gray-800 pb-12 shadow-xl">
+        <div @click.outside="open = false" class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-gray-800 pb-12 shadow-xl">
         <div class="flex px-4 pb-2 pt-5">
-            <button @click="open = false" type="button" class="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400">
+            <button @click="open = false" type="button" class="relative m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400">
             <span class="absolute -inset-0.5"></span>
             <span class="sr-only">Close menu</span>
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -30,7 +30,7 @@
             </button>
         </div>
 
-        <div class="space-y-6 border-t border-gray-200 dark:border-gray-700 px-4 py-6">
+        <div class="space-y-6 border-t border-gray-700 px-4 py-6">
             <div class="flow-root">
             <button class="m-op-06 cursor-default"><a @click="open = false" class="cursor-pointer" href="dashboard">Dashboard</a></button>
             </div>
@@ -55,12 +55,12 @@
     </div>
     </div>
 
-    <header class="bg-white dark:bg-gray-800">
+    <header class="bg-gray-800">
     <nav aria-label="Top" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="border-b border-gray-200 dark:border-gray-700">
             <div class="flex h-16 items-center justify-between">
             <!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
-            <button @click="open = true" type="button" class="relative rounded-md bg-white p-2 text-gray-600 dark:text-gray-200 sm-x:hidden">
+            <button @click="open = true" type="button" class="relative rounded-md text-gray-200 sm:hidden">
                 <span class="absolute -inset-0.5"></span>
                 <span class="sr-only">Open menu</span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -77,7 +77,7 @@
             </div>
 
             <!-- Flyout menus -->
-            <div class="hidden sm-x:ml-8 sm-x:block sm-x:self-stretch">
+            <div class="hidden sm:ml-8 sm:block sm:self-stretch">
                 <div class="flex h-full space-x-8">
                 <!-- Selected: "border-indigo-600 text-indigo-600", Not Selected: "border-transparent text-gray-600" -->
                 <button class="m-op-06 cursor-default"><a class="cursor-pointer" href="dashboard">Dashboard</a></button>
@@ -111,5 +111,3 @@
     </nav>
     </header>
 </div>
-
-<%= access %>
