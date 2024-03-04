@@ -22,7 +22,8 @@ function sendMail(msg, to, subject)
                 from: 'Portofólio technopro.net@gmail.com',
                 to: to,
                 subject: subject,
-                html: msg
+                html: msg,
+                plain: msg
               
             } 
             transporter.sendMail(mailOptions, (err, info)=>{
