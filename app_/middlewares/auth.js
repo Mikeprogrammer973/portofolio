@@ -30,7 +30,7 @@ const verifyToken = async (req, res, next)=>{
     }
 }
 
-const verifyLogin = async (req, res, next)=>{
+const login = async (req, res, next)=>{
     global.msg.login.active = false
     const { access, password } = req.body
     const adm = await Admin.findOne({access: access, password: password})
@@ -72,4 +72,4 @@ const verifyLoginStatus = async (req, res, next)=>{
     }
 }
 
-module.exports =  {verifyToken, verifyLogin, verifyLoginStatus}
+module.exports =  {verifyToken, login, verifyLoginStatus}

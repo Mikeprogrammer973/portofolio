@@ -4,9 +4,8 @@ const app = express()
 const path = require('path')
 const web = require('./routes/web')
 const dotenv = require("dotenv");
-
+const tailwindcss = require('tailwindcss')
 dotenv.config();
-
 // Mongo DB conncetion
 const database = process.env.MONGOLAB_URI;
 mongoose.connect(database)

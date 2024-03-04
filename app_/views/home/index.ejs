@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="shortcut icon" href="../../imgs/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../styles/app.css" />
+    <!-- <link rel="stylesheet" href="../../styles/app.css" /> -->
+    <script defer src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script defer type="module" src="../../scripts/menu.js"></script>
   </head>
@@ -14,6 +14,96 @@
 <body x-data="{ dark: true }" x-bind:class="dark?'dark':'light'">
     <%- include('../layouts/header_menu.ejs') %>
 
-    <h1>ADMIN HOME</h1>
+    <div class="flex items-center justify-center">
+      <form action="home" method="post" class="px-10 py-5 bg-gray-200 rounded-lg font-mono grid">
+        <p class="my-1">
+          <label class="block my-2 text-gray-600" for="salut">Salut</label>
+          <input class="py-1 px-2 outline-none bg-transparent ring-1 focus:ring-2 rounded-lg" type="text" name="salut" id="salut" placeholder="Salut" required>
+        </p>
+        <p class="my-1">
+          <label class="block my-2 text-gray-600" for="name">Name</label>
+          <input class="py-1 px-2 outline-none bg-transparent ring-1 focus:ring-2 rounded-lg" type="text" name="name" id="name" placeholder="Name" required>
+        </p>
+        <p class="my-1">
+          <label class="block my-2 text-gray-600" for="title">Title</label>
+          <input class="py-1 px-2 outline-none bg-transparent ring-1 focus:ring-2 rounded-lg" type="text" name="title" id="title" placeholder="Title" required>
+        </p>
+        <p class="my-1">
+          <label class="block my-2 text-gray-600" for="email">Email</label>
+          <input class="py-1 px-2 outline-none bg-transparent ring-1 focus:ring-2 rounded-lg" type="email" name="email" id="email" placeholder="Email" readonly>
+        </p>
+        <p class="my-1">
+          <label class="block my-2 text-gray-600" for="tel">Tel</label>
+          <input class="py-1 px-2 outline-none bg-transparent ring-1 focus:ring-2 rounded-lg" type="tel" name="tel" id="tel" placeholder="Tel" readonly>
+        </p>
+        <p class="my-1">
+          <label class="block my-2 text-gray-600" for="address">Address</label>
+          <input class="py-1 px-2 outline-none bg-transparent ring-1 focus:ring-2 rounded-lg" type="text" name="address" id="address" placeholder="Address" readonly>
+        </p>
+        <fieldset class="border-2 border-gray-500 p-4 text-center">
+          <legend class="p-2">Social</legend>
+          <div class="p-4 rounded-lg bg-gray-600 text-gray-200 my-4">
+            <p class="flex items-center justify-around my-2 gap-2 flex-wrap">
+              <img id="fb_icon_l" alt="fb_icon_light" class="size-32 rounded-full border-2 border-gray-300 p-1">
+              <img id="fb_icon_d" alt="fb_icon_dark" class="size-32 rounded-full border-2 border-gray-300 p-1">
+            </p>
+            <p class="flex items-center justify-around my-2 gap-2 flex-wrap">
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" onchange="fb_icon_l.src = this.value" type="text" name="fb_icon_light" id="fb_icon_light" placeholder="Light icon url" required>
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" onchange="fb_icon_d.src = this.value" type="text" name="fb_icon_dark" id="fb_icon_dark" placeholder="Dark icon url">
+            </p>
+            <p class="flex items-center justify-around my-2 gap-2 flex-wrap">
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" type="text" name="fb_social_name" id="fb_social_name" placeholder="Social name" required>
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" type="text" name="fb_social_uri" id="fb_social_uri" placeholder="Social uri" required>
+            </p>
+          </div>
+
+          <div class="p-4 rounded-lg bg-gray-600 text-gray-200 my-4">
+            <p class="flex items-center justify-around my-2 gap-2 flex-wrap">
+              <img id="insta_icon_l" alt="insta_icon_light" class="size-32 rounded-full border-2 border-gray-300 p-1">
+              <img id="insta_icon_d" alt="insta_icon_dark" class="size-32 rounded-full border-2 border-gray-300 p-1">
+            </p>
+            <p class="flex items-center justify-around my-2 gap-2 flex-wrap">
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" onchange="insta_icon_l.src = this.value" type="text" name="insta_icon_light" id="insta_icon_light" placeholder="Light icon url" required>
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" onchange="insta_icon_d.src = this.value" type="text" name="insta_icon_dark" id="insta_icon_dark" placeholder="Dark icon url">
+            </p>
+            <p class="flex items-center justify-around my-2 gap-2 flex-wrap">
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" type="text" name="insta_social_name" id="insta_social_name" placeholder="Social name" required>
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" type="text" name="insta_social_uri" id="insta_social_uri" placeholder="Social uri" required>
+            </p>
+          </div>
+
+          <div class="p-4 rounded-lg bg-gray-600 text-gray-200 my-4">
+            <p class="flex items-center justify-around my-2 gap-2 flex-wrap">
+              <img id="git_icon_l" alt="git_icon_light" class="size-32 rounded-full border-2 border-gray-300 p-1">
+              <img id="git_icon_d" alt="git_icon_dark" class="size-32 rounded-full border-2 border-gray-300 p-1">
+            </p>
+            <p class="flex items-center justify-around my-2 gap-2 flex-wrap">
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" onchange="git_icon_l.src = this.value" type="text" name="git_icon_light" id="git_icon_light" placeholder="Light icon url" required>
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" onchange="git_icon_d.src = this.value" type="text" name="git_icon_dark" id="git_icon_dark" placeholder="Dark icon url">
+            </p>
+            <p class="flex items-center justify-around my-2 gap-2 flex-wrap">
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" type="text" name="git_social_name" id="git_social_name" placeholder="Social name" required>
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" type="text" name="git_social_uri" id="git_social_uri" placeholder="Social uri" required>
+            </p>
+          </div>
+
+          <div class="p-4 rounded-lg bg-gray-600 text-gray-200 my-4">
+            <p class="flex items-center justify-around my-2 gap-2 flex-wrap">
+              <img id="tel_icon_l" alt="tel_icon_light" class="size-32 rounded-full border-2 border-gray-300 p-1">
+              <img id="tel_icon_d" alt="tel_icon_dark" class="size-32 rounded-full border-2 border-gray-300 p-1">
+            </p>
+            <p class="flex items-center justify-around my-2 gap-2 flex-wrap">
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" onchange="tel_icon_l.src = this.value" type="text" name="tel_icon_light" id="tel_icon_light" placeholder="Light icon url" required>
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" onchange="tel_icon_d.src = this.value" type="text" name="tel_icon_dark" id="tel_icon_dark" placeholder="Dark icon url">
+            </p>
+            <p class="flex items-center justify-around my-2 gap-2 flex-wrap">
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" type="text" name="tel_social_name" id="tel_social_name" placeholder="Social name" required>
+              <input class="bg-transparent ring-1 focus:ring-2 py-1 px-2 rounded-md outline-none" type="text" name="tel_social_uri" id="tel_social_uri" placeholder="Social uri" required>
+            </p>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
 </body>
 </html>

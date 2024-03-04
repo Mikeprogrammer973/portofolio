@@ -1,12 +1,7 @@
 const express = require('express')
 const { webIndexView , notFound} = require('../controllers/web')
-const { verifyToken, verifyLogin, verifyLoginStatus } = require('../middlewares/auth')
-const { adminIndexView, notAuth, admin_login_get, admin_login_post } = require('../controllers/admin')
-const { homeIndexView } = require('../controllers/home')
-const { aboutIndexView } = require('../controllers/about')
-const { skillsIndexView } = require('../controllers/skills')
-const { experienceIndexView } = require('../controllers/experience')
-const { contactIndexView } = require('../controllers/contact')
+const { verifyToken, login, verifyLoginStatus } = require('../middlewares/auth')
+const { adminIndexView, notAuth, admin_login_get, homeIndexView, aboutIndexView, skillsIndexView, experienceIndexView, contactIndexView } = require('../controllers/admin')
 
 const router = express.Router()
 
@@ -16,7 +11,7 @@ router.get('/', webIndexView)
 // admin
 router.get('/admin/dashboard', verifyLoginStatus, adminIndexView)
 router.get('/admin/login', admin_login_get)
-router.post('/admin/login', verifyLogin)
+router.post('/admin/login', login)
 
 router.get('/admin/home', verifyLoginStatus, homeIndexView)
 
