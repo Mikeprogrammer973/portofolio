@@ -2,6 +2,10 @@
 const mongoose = require('mongoose')
 
 const AdminSchema = new mongoose.Schema({
+    key: {
+        type: String,
+        required: true
+    },
     access: {
         type: String,
         required: true
@@ -38,8 +42,12 @@ const AdminSchema = new mongoose.Schema({
                 required: true
             },
             socials: {
-                type: {
+                type: [{
                     icon: {
+                        type: [],
+                        required: true
+                    },
+                    name: {
                         type: String,
                         required: true
                     },
@@ -47,7 +55,7 @@ const AdminSchema = new mongoose.Schema({
                         type: String,
                         required: true
                     }
-                }
+                }]
             }
         },
         required: true
@@ -81,7 +89,7 @@ const AdminSchema = new mongoose.Schema({
                 }
             },
             occupation: {
-                type: {
+                type: [{
                     icon: {
                         type: String,
                         required: true
@@ -94,7 +102,7 @@ const AdminSchema = new mongoose.Schema({
                         type: String,
                         required: true
                     }
-                }
+                }]
             }
         },
         required: true
