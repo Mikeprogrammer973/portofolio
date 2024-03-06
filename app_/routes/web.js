@@ -1,7 +1,8 @@
 const express = require('express')
 const { webIndexView , notFound} = require('../controllers/web')
 const { verifyToken, login, verifyLoginStatus } = require('../middlewares/auth')
-const { adminIndexView, notAuth, admin_login_get, homeIndexView, aboutIndexView, skillsIndexView, experienceIndexView, homeUpdate, aboutUpdate } = require('../controllers/admin')
+const { adminIndexView, notAuth, admin_login_get, homeIndexView, aboutIndexView, experienceIndexView, homeUpdate, aboutUpdate } = require('../controllers/admin')
+const { skillsIndexView, newSkill, skillUpdate, skillDelete } = require('../controllers/skill')
 
 const router = express.Router()
 
@@ -20,6 +21,9 @@ router.get('/admin/about', verifyLoginStatus, aboutIndexView)
 router.post('/admin/about', verifyToken, aboutUpdate)
 
 router.get('/admin/skills', verifyLoginStatus, skillsIndexView)
+router.post('/admin/skills/new', verifyToken, newSkill)
+router.post('/admin/skills/edit', verifyToken, skillUpdate)
+router.post('/admin/skills/delete', verifyToken, skillDelete)
 
 router.get('/admin/experience', verifyLoginStatus, experienceIndexView)
 

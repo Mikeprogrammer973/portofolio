@@ -54,10 +54,6 @@ const experienceIndexView = (req, res)=>{
     res.render('experience/index', {access: global.access})
 }
 
-const skillsIndexView = (req, res)=>{
-    res.render('skills/index', {access: global.access})
-}
-
 const admin_login_get = (req, res)=>{
     global.logged = false
     global.access.admin = null
@@ -75,7 +71,6 @@ module.exports = {
     aboutIndexView,
     experienceIndexView,
     homeIndexView,
-    skillsIndexView,
     homeUpdate,
     aboutUpdate
 }
