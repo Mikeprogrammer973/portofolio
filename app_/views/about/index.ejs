@@ -3,17 +3,28 @@
 <html lang="en">
   <head>
     <title>Admin | About</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="shortcut icon" href="../../imgs/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../styles/app.css" />
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script defer type="module" src="../../scripts/menu.js"></script>
+    <%- include('../layouts/header.ejs') %>
   </head>
 
-<body x-data="{ dark: true }" x-bind:class="dark?'dark':'light'">
+  <body x-data="{ dark: true }" x-bind:class="dark?'dark':'light'">
     <%- include('../layouts/header_menu.ejs') %>
+    <div class="">
+      <form action="about" method="post" class="px-5 lg:px-10 py-5 my-10 grid items-center justify-center gap-2 grid-cols-1 md:grid-cols-3 box-border bg-gray-300 rounded-lg font-mono max-w-[90%] mx-auto">
+        <p class="hidden">
+          <input type="text" name="token" id="token" value="<%= admin.token %>">
+        </p>
+        <div class="text-center">
+          <img class="w-full" src="<%= admin.profile.about.icon %>" id="icon_" alt="icon_">
+          <input value="<%= admin.profile.about.icon %>" onchange="icon_.src = this.value" type="text" name="icon" class="py-1 px-2 my-4 outline-none bg-transparent ring-1 focus:ring-2 rounded-lg" placeholder="illustration icon" required>
+        </div>
+        <div  class="text-center">
+          <textarea name="content" rows="10" class="py-1 px-2 outline-none bg-transparent ring-1 focus:ring-2 rounded-lg" placeholder="About me" required> <%= admin.profile.about.content %> </textarea>
+        </div>
+        <p  class="text-center">
+          <button class="py-2 px-5 border-2 border-green-700 hover:bg-green-700 text-xl text-green-600 hover:text-white rounded-md">Save Changes</button>
+        </p>
+      </form>
+    </div>
 
-    <h1>ADMIN ABOUT</h1>
 </body>
 </html>

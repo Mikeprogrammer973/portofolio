@@ -20,12 +20,12 @@ const AdminSchema = new mongoose.Schema({
     },
     contact: {
         type: {
-            emails: {
-                type: [],
+            email: {
+                type: String,
                 required: true
             },
-            tels: {
-                type: [],
+            tel: {
+                type: String,
                 required: true
             },
             address: {

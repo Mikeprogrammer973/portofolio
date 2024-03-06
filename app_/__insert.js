@@ -6,17 +6,18 @@ const Admin = require('./models/admin');
 dotenv.config();
 
 // Mongo DB conncetion
-const database = process.env.MONGOLAB_URI;
+const database = ''
 mongoose.connect(database)
 .then(async () => {
 
     const adm = new Admin({
+        key: "",
         access: "000",
         password: "000",
         token: "000",
         contact: {
-            emails: ["mikepascal.delta@gmail.com", "antiquesclub007@gmail.com"],
-            tels: ["+1 514-299-8184"],
+            email: "mikepascal.delta@gmail.com",
+            tel: "+1 514-299-8184",
             address: {
                 short: "Montreal, Canada",
                 long: "9199, Rue Airlie, Lasalle, Montréal QC"

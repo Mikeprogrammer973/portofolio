@@ -8,7 +8,19 @@ const adminIndexView = (req, res)=>{
 }
 
 const aboutIndexView = (req, res)=>{
-    res.render('about/index', {access: global.access})
+    admin().then(admin => {
+        res.render('about/index', {admin: admin})
+    }).catch(err =>{
+        res.send(err)
+    })
+}
+const aboutUpdate = async (req, res)=>{
+    const { icon, content } = req.body
+    const adm = await admin()
+    adm.profile.about.icon = icon
+    adm.profile.about.content = content
+    await adm.save()
+    res.redirect('about')
 }
 
 const homeIndexView = (req, res)=>{
@@ -19,7 +31,7 @@ const homeIndexView = (req, res)=>{
     })
 }
 const homeUpdate = async (req, res)=>{
-    const { photo, salut, name, title, fb_icon_light, fb_icon_dark, fb_social_name, fb_social_uri, insta_icon_light, insta_icon_dark, insta_social_name, insta_social_uri, git_icon_light, git_icon_dark, git_social_name, git_social_uri, tel_icon_light, tel_icon_dark, tel_social_name, tel_social_uri, } = req.body
+    const { photo, salut, name, title, fb_icon_light, fb_icon_dark, fb_social_name, fb_social_uri, insta_icon_light, insta_icon_dark, insta_social_name, insta_social_uri, git_icon_light, git_icon_dark, git_social_name, git_social_uri, tel_icon_light, tel_icon_dark, tel_social_name, tel_social_uri, address_short, address_long, email, tel } = req.body
     const adm = await admin()
     adm.profile.photo = photo
     adm.profile.salut = salut
@@ -31,12 +43,11 @@ const homeUpdate = async (req, res)=>{
         { name: git_social_name, icon: [git_icon_light, git_icon_dark], uri: git_social_uri },
         { name: tel_social_name, icon: [tel_icon_light, tel_icon_dark], uri: tel_social_uri }
     ]
+    adm.contact.tel = tel
+    adm.contact.email = email
+    adm.contact.address = { short: address_short, long: address_long }
     await adm.save()
     res.redirect('home')
-}
-
-const contactIndexView = (req, res)=>{
-    res.render('contact/index', {access: global.access})
 }
 
 const experienceIndexView = (req, res)=>{
@@ -62,9 +73,9 @@ module.exports = {
     notAuth, 
     admin_login_get,
     aboutIndexView,
-    contactIndexView,
     experienceIndexView,
     homeIndexView,
     skillsIndexView,
-    homeUpdate 
+    homeUpdate,
+    aboutUpdate
 }
