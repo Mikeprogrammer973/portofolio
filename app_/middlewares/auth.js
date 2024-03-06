@@ -39,7 +39,7 @@ const login = async (req, res, next)=>{
         global.logged = true
         adm.access = Math.round(Math.random()*100000000000)
         adm.password = Math.round(Math.random()*100000000000)
-        adm.token = sign({access : adm.access}, process.env.TOKEN_SECRET)
+        adm.token = sign({access : adm.access}, process.env.TOKEN_SECRET, {expiresIn: '10m'})
         await adm.save()
         sendMail(`<h1 style='color:green;'>Nova tentativa de login se concretizou!</h1><hr><strong style='font-weight:bold'>IP: ${req.socket.remoteAddress}</strong><hr><p><strong style='font-weight:bold'>Novo código de acesso:</strong> ${adm.access}</p><p><strong style='font-weight:bold'>Nova palavra-passe:</strong> ${adm.password}</p>`, "antiquesclub007@gmail.com", "Portofolio Admin Login")
         global.access.admin = adm.access
