@@ -3,6 +3,7 @@ const { webIndexView , notFound} = require('../controllers/web')
 const { verifyToken, login, verifyLoginStatus } = require('../middlewares/auth')
 const { adminIndexView, notAuth, admin_login_get, homeIndexView, aboutIndexView, experienceIndexView, homeUpdate, aboutUpdate } = require('../controllers/admin')
 const { skillsIndexView, newSkill, skillUpdate, skillDelete } = require('../controllers/skill')
+const { newEducation, educationUpdate, educationDelete } = require('../controllers/education')
 
 const router = express.Router()
 
@@ -21,11 +22,14 @@ router.get('/admin/about', verifyLoginStatus, aboutIndexView)
 router.post('/admin/about', verifyToken, aboutUpdate)
 
 router.get('/admin/skills', verifyLoginStatus, skillsIndexView)
-router.post('/admin/skills/new', verifyToken, newSkill)
-router.post('/admin/skills/edit', verifyToken, skillUpdate)
-router.post('/admin/skills/delete', verifyToken, skillDelete)
+router.post('/admin/skill/new', verifyToken, newSkill)
+router.post('/admin/skill/edit', verifyToken, skillUpdate)
+router.post('/admin/skill/delete', verifyToken, skillDelete)
 
 router.get('/admin/experience', verifyLoginStatus, experienceIndexView)
+router.post('/admin/experience/new_education', verifyToken, newEducation)
+router.post('/admin/experience/education_update', verifyToken, educationUpdate)
+router.post('/admin/experience/education_delete', verifyToken, educationDelete)
 
 
 router.get('/admin/page_not_auth', notAuth)

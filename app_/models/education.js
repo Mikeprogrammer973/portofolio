@@ -13,11 +13,11 @@ const EducationSchema = new mongoose.Schema({
     date: {
         type: {
             start: {
-                type: (Number | Date),
+                type: String,
                 required: true
             },
             end: {
-                type: (Number | Date),
+                type: String,
                 required: true
             }
         },

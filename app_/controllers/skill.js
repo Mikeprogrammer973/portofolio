@@ -20,7 +20,7 @@ const newSkill = async (req, res)=>{
         info: info
     })
     await skill.save()
-    res.redirect('../skills')
+    res.redirect('../../admin/skills')
 }
 
 const skillUpdate = async (req, res)=>{
@@ -30,13 +30,13 @@ const skillUpdate = async (req, res)=>{
     skill.acquis = Number(acquis)
     skill.info = info
     await skill.save()
-    res.redirect('../skills')
+    res.redirect('../../admin/skills')
 }
 
 const skillDelete = async (req, res)=>{
     const { id } = req.body
     await Skill.deleteOne({_id: id})
-    res.redirect('../skills')
+    res.redirect('../../admin/skills')
 }
 
 module.exports = {

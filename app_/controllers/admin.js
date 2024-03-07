@@ -1,5 +1,8 @@
 const formidable = require('formidable')
 const Admin = require('../models/admin')
+const Education = require('../models/education')
+const Project = require('../models/project')
+const Review = require('../models/review')
 
 const admin = ()=>{ return Admin.findOne({access: global.access.admin})}
 
@@ -50,8 +53,12 @@ const homeUpdate = async (req, res)=>{
     res.redirect('home')
 }
 
-const experienceIndexView = (req, res)=>{
-    res.render('experience/index', {access: global.access})
+const experienceIndexView = async (req, res)=>{
+    const token = (await admin()).token
+    const educations = (await Education.find())
+    const projects = (await Project.find())
+    const reviews = (await Review.find())
+    res.render('experience/index', {token: token, educations: educations, projects: projects, reviews: reviews})
 }
 
 const admin_login_get = (req, res)=>{

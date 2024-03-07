@@ -3,17 +3,149 @@
 <html lang="en">
   <head>
     <title>Admin | Experiences</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="shortcut icon" href="../../imgs/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../styles/app.css" />
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script defer type="module" src="../../scripts/menu.js"></script>
+    <%- include('../layouts/header.ejs') %>
   </head>
 
 <body x-data="{ dark: true }" x-bind:class="dark?'dark':'light'">
     <%- include('../layouts/header_menu.ejs') %>
 
-    <h1>ADMIN EXPERIENCES</h1>
+    <div class="grid gap-4 grid-cols-1 xl:grid-cols-3">
+      <div x-data="{ show: false }" class="bg-slate-900">
+        <h1 class="text-center text-white text-2xl font-light my-4">Education</h1>
+        <button x-show="!show" @click=" show = true " class="border-2 m-5 py-2 px-4 rounded-lg text-slate-600 border-slate-600 mt-4 hover:border-slate-400 focus:border-slate-400 hover:text-slate-400 focus:text-slate-400">New education</button>
+        <div x-show="!show" class="flex items-center justify-around gap-4 flex-wrap px-5 py-10">
+          <% if (educations.length == 0) { %>
+            <p class="text-2xl font-light text-red-500">No education found!</p>
+          <% } else { %>
+            <% educations.forEach((education, i)=>{ %>
+              <div class="bg-slate-700 text-slate-100 p-4 rounded-lg">
+                <form action="experience/education_update" method="post">
+                  <p class="hidden">
+                    <input type="text" value="<%= token %>" name="token" id="token" required>
+                  </p>
+                  <p class="hidden">
+                    <input type="text" value="<%= education._id %>" name="id" id="id" required>
+                  </p>
+                  <p>
+                    <input class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-slate-300 focus:ring-2 rounded-md my-2 ring-slate-500 outline-none" value="<%= education.name %>" type="text" name="name" id="name" placeholder="Name" required>
+                  </p>
+                  <p>
+                    <input class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-slate-300 focus:ring-2 rounded-md my-2 ring-slate-500 outline-none" value="<%= education.place %>" type="text" name="place" id="place" placeholder="Place" required>
+                  </p>
+                  <p>
+                    <input class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-slate-300 focus:ring-2 rounded-md my-2 ring-slate-500 outline-none" value="<%= education.date.start %>" type="text" name="start" id="start" placeholder="Start" required>
+                  </p>
+                  <p>
+                    <input class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-slate-300 focus:ring-2 rounded-md my-2 ring-slate-500 outline-none" value="<%= education.date.end %>" type="text" name="end" id="end" placeholder="End" required>
+                  </p>
+                  <p>
+                    <textarea class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-slate-300 focus:ring-2 rounded-md my-2 ring-slate-500 outline-none" name="details" id="details"  required placeholder="Details"> <%= education.details %> </textarea>
+                  </p>
+                  <p>
+                    <button class="border-2 py-2 w-full my-2 px-4 rounded-lg text-green-300 mt-4 border-green-300 hover:border-green-500 focus:border-green-500 hover:text-green-500 focus:text-green-500">Save</button>
+                  </p>
+                </form>
+                <form class="w-full mt-4 my-2" action="experience/education_delete" method="post">
+                  <p class="hidden">
+                    <input type="text" name="token" value="<%= token %>">
+                    <input type="text" name="id" value="<%= education._id %>">
+                  </p>
+                  <button class="border-2 w-full py-2 px-4 rounded-lg text-red-300 border-red-300 hover:border-red-500 focus:border-red-500 hover:text-red-500 focus:text-red-500">Delete</button>
+                </form>
+              </div>
+            <% }) %>
+          <% } %>
+        </div>
+        <div x-show="show" class="flex items-center justify-center px-5 py-10">
+          <form action="experience/new_education" method="post" class="px-10 py-5 rounded-lg bg-slate-800 text-white">
+            <p class="hidden">
+              <input type="text" value="<%= token %>" name="token" id="token" required>
+            </p>
+            <p>
+              <input class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-blue-300 focus:ring-2 rounded-md my-2 ring-blue-500 outline-none" type="text" name="name" id="name" placeholder="Name" required>
+            </p>
+            <p>
+              <input class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-blue-300 focus:ring-2 rounded-md my-2 ring-blue-500 outline-none" type="text" name="place" id="place" placeholder="Place" required>
+            </p>
+            <p>
+              <input class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-blue-300 focus:ring-2 rounded-md my-2 ring-blue-500 outline-none" type="text" name="start" id="start" placeholder="Start" required>
+            </p>
+            <p>
+              <input class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-blue-300 focus:ring-2 rounded-md my-2 ring-blue-500 outline-none" type="text" name="end" id="end" placeholder="End" required>
+            </p>
+            <p>
+              <textarea class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-blue-300 focus:ring-2 rounded-md my-2 ring-blue-500 outline-none" name="details" id="details"  required placeholder="Details"></textarea>
+            </p>
+            <p class="flex gap-4 flex-wrap items-center justify-center">
+              <button @click=" show = false " type="button" class="border-2 w-[45%] max-w-full py-2 px-4 rounded-lg text-red-300 mt-4 border-red-300 hover:border-red-500 focus:border-red-500 hover:text-red-500 focus:text-red-500">Cancel</button>
+              <button type="submit" class="border-2 py-2 w-[45%] max-w-full px-4 rounded-lg text-green-300 mt-4 border-green-300 hover:border-green-500 focus:border-green-500 hover:text-green-500 focus:text-green-500">Add</button>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div x-data="{ show: false }" class="bg-purple-900">
+        <h1 class="text-center text-white text-2xl font-light my-4">Projects</h1>
+        <button x-show="!show" @click=" show = true " class="border-2 m-5 py-2 px-4 rounded-lg text-purple-600 border-purple-600 mt-4 hover:border-purple-400 focus:border-purple-400 hover:text-purple-400 focus:text-purple-400">New project</button>
+        <div x-show="!show" class="flex items-center justify-around gap-4 flex-wrap px-5 py-10">
+          <div class="bg-purple-700 text-purple-100 p-4 rounded-lg">
+            <form action="project/edit" method="post">
+              <p class="hidden">
+                <input type="text" name="token" id="token" required>
+              </p>
+              <p class="hidden">
+                <input type="text" name="id" id="id" required>
+              </p>
+              <p class="flex items-center justify-center">
+                <img src="" id="logo_project_" alt="logo_project" class="size-28 rounded-full p-2 border-2 border-white m-2">
+              </p>
+              <p>
+                <input onchange="logo_project_.src = this.value" class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-purple-300 focus:ring-2 rounded-md my-2 ring-purple-500 outline-none" type="text" name="logo" id="logo" placeholder="Logo url" required>
+              </p>
+              <p>
+                <input class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-purple-300 focus:ring-2 rounded-md my-2 ring-purple-500 outline-none" type="text" name="name" id="name" placeholder="Name" required>
+              </p>
+              <p>
+                <input class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-purple-300 focus:ring-2 rounded-md my-2 ring-purple-500 outline-none" type="text" name="visit_link" id="visit_link" placeholder="Visit link" required>
+              </p>
+              <p>
+                <button class="border-2 py-2 w-full my-2 px-4 rounded-lg text-green-300 mt-4 border-green-300 hover:border-green-500 focus:border-green-500 hover:text-green-500 focus:text-green-500">Save</button>
+              </p>
+            </form>
+            <form class="w-full mt-4 my-2" action="project/delete" method="post">
+              <p class="hidden">
+                <input type="text" name="token" value="<%= //token %>">
+                <input type="text" name="id" value="<%= //project._id %>">
+              </p>
+              <button class="border-2 w-full py-2 px-4 rounded-lg text-red-300 border-red-300 hover:border-red-500 focus:border-red-500 hover:text-red-500 focus:text-red-500">Delete</button>
+            </form>
+          </div>
+        </div>
+        <div x-show="show" class="flex items-center justify-center px-5 py-10">
+          <form action="project/new" method="post" class="px-10 py-5 rounded-lg bg-purple-800 text-white">
+            <p class="hidden">
+              <input type="text" name="token" id="token" required>
+            </p>
+            <p class="flex items-center justify-center">
+              <img src="" id="logo_project" alt="logo_project" class="size-28 rounded-full p-2 border-2 border-white m-2">
+            </p>
+            <p>
+              <input onchange="logo_project.src = this.value" class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-purple-300 focus:ring-2 rounded-md my-2 ring-purple-500 outline-none" type="text" name="logo" id="logo" placeholder="Logo url" required>
+            </p>
+            <p>
+              <input class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-purple-300 focus:ring-2 rounded-md my-2 ring-purple-500 outline-none" type="text" name="name" id="name" placeholder="Name" required>
+            </p>
+            <p>
+              <input class="bg-transparent w-full px-2 py-1 text-center ring-1 focus:ring-purple-300 focus:ring-2 rounded-md my-2 ring-purple-500 outline-none" type="text" name="visit_link" id="visit_link" placeholder="Visit link" required>
+            </p>
+            <p class="flex gap-4 flex-wrap items-center justify-center">
+              <button @click=" show = false " type="button" class="border-2 w-[45%] max-w-full py-2 px-4 rounded-lg text-red-300 mt-4 border-red-300 hover:border-red-500 focus:border-red-500 hover:text-red-500 focus:text-red-500">Cancel</button>
+              <button type="submit" class="border-2 py-2 w-[45%] max-w-full px-4 rounded-lg text-green-300 mt-4 border-green-300 hover:border-green-500 focus:border-green-500 hover:text-green-500 focus:text-green-500">Add</button>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="bg-orange-200">R</div>
+    </div>
+    
 </body>
 </html>
