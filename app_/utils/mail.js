@@ -19,7 +19,7 @@ function sendMail(msg, to, subject)
         else
         {
             const mailOptions = {
-                from: 'Portofólio technopro.net@gmail.com',
+                from: 'Mike D. Pascal technopro.net@gmail.com',
                 to: to,
                 subject: subject,
                 html: msg,

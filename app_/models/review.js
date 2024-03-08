@@ -5,7 +5,10 @@ const ReviewSchema = new mongoose.Schema({
     client: {
         type: {
             photo: {
-                type: String,
+                type: {
+                    tipo: String,
+                    data: String
+                },
                 required: true
             },
             name: {

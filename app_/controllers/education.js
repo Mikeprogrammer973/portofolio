@@ -8,7 +8,7 @@ const newEducation = async (req, res)=>{
         date: {start: start, end: end},
         details: details
     })).save()
-    res.redirect('../experience')
+    res.redirect('../experiences')
 }
 
 const educationUpdate = async (req, res)=>{
@@ -19,13 +19,13 @@ const educationUpdate = async (req, res)=>{
     education.date = {start: start, end: end}
     education.details = details
     await education.save()
-    res.redirect('../experience')
+    res.redirect('../experiences')
 }
 
 const educationDelete = async (req, res)=>{
     const { id } = req.body
     await Education.deleteOne({_id: id})
-    res.redirect('../experience')
+    res.redirect('../experiences')
 }
 
 module.exports = {

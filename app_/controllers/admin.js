@@ -53,7 +53,7 @@ const homeUpdate = async (req, res)=>{
     res.redirect('home')
 }
 
-const experienceIndexView = async (req, res)=>{
+const experiencesIndexView = async (req, res)=>{
     const token = (await admin()).token
     const educations = (await Education.find())
     const projects = (await Project.find())
@@ -76,7 +76,7 @@ module.exports = {
     notAuth, 
     admin_login_get,
     aboutIndexView,
-    experienceIndexView,
+    experiencesIndexView,
     homeIndexView,
     homeUpdate,
     aboutUpdate

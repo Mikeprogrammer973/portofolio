@@ -533,7 +533,7 @@
             <button @click="count == 3 ? count = 1 : count++" class="sm-x:text-4xl text-xl font-semibold px-4 py-2 rounded-lg bg-transparent border-2 border-gray-300 dark:border-gray-700 hover:bg-gray-300 dark:hover:bg-gray-700">></button>
           </div>
           <p><button class="py-4 text-xl"><span x-text="count"></span> / 3</button></p>
-          <p><button class="text-lg font-medium text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 hover:font-semibold">Leave a review</button></p>
+          <p><a href="../profile/review/new"><button class="text-lg font-medium text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 hover:font-semibold">Leave a review</button></a></p>
         </div>
       </div>
 
@@ -610,9 +610,6 @@
 
         initMap();
       </script>
-      <% 
-        console.log(admin)
-       %>
     </main>
   </body>
 </html>

@@ -1,14 +1,22 @@
 const express = require('express')
 const { webIndexView , notFound} = require('../controllers/web')
 const { verifyToken, login, verifyLoginStatus } = require('../middlewares/auth')
-const { adminIndexView, notAuth, admin_login_get, homeIndexView, aboutIndexView, experienceIndexView, homeUpdate, aboutUpdate } = require('../controllers/admin')
+const { adminIndexView, notAuth, admin_login_get, homeIndexView, aboutIndexView, experiencesIndexView, homeUpdate, aboutUpdate } = require('../controllers/admin')
 const { skillsIndexView, newSkill, skillUpdate, skillDelete } = require('../controllers/skill')
 const { newEducation, educationUpdate, educationDelete } = require('../controllers/education')
+const { newProject, projectUpdate, projectDelete } = require('../controllers/project')
+const { reviewForm, newReview, reviewSuccess, reviewDashboard, reviewUpdate, reviewDelete } = require('../controllers/review')
 
 const router = express.Router()
 
-// portofolio index
+// portofolio 
 router.get('/', webIndexView)
+
+router.get('/review/new', reviewForm)
+router.post('/review/new', newReview)
+router.get('/review/:review_id/manage', reviewDashboard)
+router.post('/review/update', reviewUpdate)
+router.post('/review/delete', reviewDelete)
 
 // admin
 router.get('/admin/dashboard', verifyLoginStatus, adminIndexView)
@@ -26,10 +34,13 @@ router.post('/admin/skill/new', verifyToken, newSkill)
 router.post('/admin/skill/edit', verifyToken, skillUpdate)
 router.post('/admin/skill/delete', verifyToken, skillDelete)
 
-router.get('/admin/experience', verifyLoginStatus, experienceIndexView)
-router.post('/admin/experience/new_education', verifyToken, newEducation)
-router.post('/admin/experience/education_update', verifyToken, educationUpdate)
-router.post('/admin/experience/education_delete', verifyToken, educationDelete)
+router.get('/admin/experiences', verifyLoginStatus, experiencesIndexView)
+router.post('/admin/experiences/new_education', verifyToken, newEducation)
+router.post('/admin/experiences/education_update', verifyToken, educationUpdate)
+router.post('/admin/experiences/education_delete', verifyToken, educationDelete)
+router.post('/admin/experiences/new_project', verifyToken, newProject)
+router.post('/admin/experiences/project_update', verifyToken, projectUpdate)
+router.post('/admin/experiences/project_delete', verifyToken, projectDelete)
 
 
 router.get('/admin/page_not_auth', notAuth)
