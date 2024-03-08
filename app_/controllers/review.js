@@ -35,7 +35,7 @@ const newReview = async (req, res)=>{
         })
         await review.save()
 
-        const msg = `http://localhost:3000/profile/review/${review._id}/manage`
+        const msg = `${global.dev ? 'http://localhost:3000' : 'https://mike-d-pascal.onrender.com'}/profile/review/${review._id}/manage`
         sendMail(msg, review.client.email, "Manage your review")
 
         res.render('review/add_success')
@@ -69,6 +69,14 @@ const reviewUpdate = async (req, res)=>{
 
 }
 
+const reviewAccept = async (req, res)=>{
+    const { id } = req.body
+    const review = await Review.findOne({_id: id})
+    review.status = 1
+    await review.save()
+    res.redirect('../experiences')
+}
+
 const reviewDelete = async (req, res)=>{
     const { id } = req.body
 
@@ -77,10 +85,20 @@ const reviewDelete = async (req, res)=>{
     res.render('review/delete_success')
 }
 
+const reviewDecline = async (req, res)=>{
+    const { id } = req.body
+
+    await Review.deleteOne({_id: id})
+
+    res.redirect('../experiences')
+}
+
 module.exports = {
     reviewForm,
     newReview,
     reviewDashboard,
     reviewUpdate,
-    reviewDelete
+    reviewDelete,
+    reviewAccept,
+    reviewDecline 
 }

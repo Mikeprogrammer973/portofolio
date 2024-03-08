@@ -3,6 +3,7 @@ const Admin = require('../models/admin')
 const Education = require('../models/education')
 const Project = require('../models/project')
 const Review = require('../models/review')
+const Occupation = require('../models/occupation')
 
 const admin = ()=>{ return Admin.findOne({access: global.access.admin})}
 
@@ -11,8 +12,8 @@ const adminIndexView = (req, res)=>{
 }
 
 const aboutIndexView = (req, res)=>{
-    admin().then(admin => {
-        res.render('about/index', {admin: admin})
+    admin().then(async admin => {
+        res.render('about/index', {admin: admin, occupations: await Occupation.find()})
     }).catch(err =>{
         res.send(err)
     })

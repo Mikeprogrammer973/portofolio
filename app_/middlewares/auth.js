@@ -1,6 +1,7 @@
 const { verify, sign } = require('jsonwebtoken')
 const Admin = require('../models/admin')
 const { sendMail } = require('../utils/mail')
+const requestIp = require('request-ip')
 
 const verifyToken = async (req, res, next)=>{
     const token = req.body.token || req.query.token || req.headers['x-access-token']
@@ -41,13 +42,13 @@ const login = async (req, res, next)=>{
         adm.password = Math.round(Math.random()*100000000000)
         adm.token = sign({access : adm.access}, process.env.TOKEN_SECRET, {expiresIn: '10m'})
         await adm.save()
-        sendMail(`<h1 style='color:green;'>Nova tentativa de login se concretizou!</h1><hr><strong style='font-weight:bold'>IP: ${req.socket.remoteAddress}</strong><hr><p><strong style='font-weight:bold'>Novo código de acesso:</strong> ${adm.access}</p><p><strong style='font-weight:bold'>Nova palavra-passe:</strong> ${adm.password}</p>`, "antiquesclub007@gmail.com", "Portofolio Admin Login")
+        sendMail(`<h1 style='color:green;'>Nova tentativa de login se concretizou!</h1><hr><strong style='font-weight:bold'>IP: ${requestIp.getClientIp(req)}</strong><hr><p><strong style='font-weight:bold'>Novo código de acesso:</strong> ${adm.access}</p><p><strong style='font-weight:bold'>Nova palavra-passe:</strong> ${adm.password}</p>`, "antiquesclub007@gmail.com", "Portofolio Admin Login")
         global.access.admin = adm.access
         res.redirect('/profile/admin/dashboard')
     }
     else
     {
-        sendMail(`<h1 style='color:red;'>Nova tentativa de login falhou!</h1><hr><strong style='font-weight:bold'>IP: ${req.socket.remoteAddress}</strong>`, "antiquesclub007@gmail.com", "Portofolio Admin Login")
+        sendMail(`<h1 style='color:red;'>Nova tentativa de login falhou!</h1><hr><strong style='font-weight:bold'>IP: ${requestIp.getClientIp(req)}</strong>`, "antiquesclub007@gmail.com", "Portofolio Admin Login")
         global.msg.login.active = true
         res.redirect('/profile/admin/login')
     }

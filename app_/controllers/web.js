@@ -1,8 +1,9 @@
 const Admin = require("../models/admin")
+const Occupation = require("../models/occupation")
 
 const webIndexView = async (req, res)=>{
-    Admin.findOne({key: process.env.ADM_KEY}).then((admin)=>{
-        res.render('portofolio', {admin: (admin != null ? admin : {})})
+    Admin.findOne({key: process.env.ADM_KEY}).then(async (admin)=>{
+        res.render('portofolio', {admin: (admin != null ? admin : {}), occupations: (await Occupation.find())})
     })
 }
 

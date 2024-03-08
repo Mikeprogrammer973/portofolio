@@ -12,6 +12,7 @@ mongoose.connect(database)
 .then(() => console.log('e don connect'))
 .catch(err => console.log(err));
 
+global.dev = false
 global.logged = false
 global.token = null
 global.msg = { login: { active: false, content: "Access code and/or password wrong!" } }

@@ -5,7 +5,8 @@ const { adminIndexView, notAuth, admin_login_get, homeIndexView, aboutIndexView,
 const { skillsIndexView, newSkill, skillUpdate, skillDelete } = require('../controllers/skill')
 const { newEducation, educationUpdate, educationDelete } = require('../controllers/education')
 const { newProject, projectUpdate, projectDelete } = require('../controllers/project')
-const { reviewForm, newReview, reviewSuccess, reviewDashboard, reviewUpdate, reviewDelete } = require('../controllers/review')
+const { reviewForm, newReview, reviewSuccess, reviewDashboard, reviewUpdate, reviewDelete, reviewAccept, reviewDecline } = require('../controllers/review')
+const { newOccupation, occupationUpdate, occupationDelete } = require('../controllers/occupation')
 
 const router = express.Router()
 
@@ -28,6 +29,9 @@ router.post('/admin/home', verifyToken, homeUpdate)
 
 router.get('/admin/about', verifyLoginStatus, aboutIndexView)
 router.post('/admin/about', verifyToken, aboutUpdate)
+router.post('/admin/about/new_occupation', verifyToken, newOccupation)
+router.post('/admin/about/occupation_update', verifyToken, occupationUpdate)
+router.post('/admin/about/occupation_delete', verifyToken, occupationDelete)
 
 router.get('/admin/skills', verifyLoginStatus, skillsIndexView)
 router.post('/admin/skill/new', verifyToken, newSkill)
@@ -41,6 +45,8 @@ router.post('/admin/experiences/education_delete', verifyToken, educationDelete)
 router.post('/admin/experiences/new_project', verifyToken, newProject)
 router.post('/admin/experiences/project_update', verifyToken, projectUpdate)
 router.post('/admin/experiences/project_delete', verifyToken, projectDelete)
+router.post('/admin/experiences/review_update', verifyToken, reviewAccept)
+router.post('/admin/experiences/review_delete', verifyToken, reviewDecline)
 
 
 router.get('/admin/page_not_auth', notAuth)
