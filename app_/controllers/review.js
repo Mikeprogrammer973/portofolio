@@ -64,7 +64,7 @@ const reviewUpdate = async (req, res)=>{
         await review.save()
         
 
-        res.redirect(`http://localhost:3000/profile/review/${review._id}/manage`)
+        res.redirect(`${global.dev ? 'http://localhost:3000' : 'https://mike-d-pascal.onrender.com'}/profile/review/${review._id}/manage`)
     })
 
 }
