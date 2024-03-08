@@ -35,9 +35,17 @@ const newReview = async (req, res)=>{
         })
         await review.save()
 
-        const msg = `${global.dev ? 'http://localhost:3000' : 'https://mike-d-pascal.onrender.com'}/profile/review/${review._id}/manage`
+        const msg = `
+            <div style="padding: 20px;background-color: inherit;">
+                <div style="background-color: whitesmoke; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; padding: 10px;color:white;">
+                <p style="color: green; font-weight: bold;font-size: 1.5rem; padding: 5px;">Hello ${review.client.name}, processing of your review is in progress. Click on the link below to track its status and manage it.</p>
+                <p style="font-weight: bold; padding: 5px; color: darkgray; font-size: 1.2rem;">
+                    <a href="${global.dev ? 'http://localhost:3000' : 'https://mike-d-pascal.onrender.com'}/profile/review/${review._id}/manage">Here</a>
+                </p>
+                </div>
+            </div>
+        `
         sendMail(msg, review.client.email, "Manage your review")
-
         res.render('review/add_success')
     })
 }

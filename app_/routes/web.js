@@ -1,5 +1,5 @@
 const express = require('express')
-const { webIndexView , notFound} = require('../controllers/web')
+const { webIndexView , notFound, contact} = require('../controllers/web')
 const { verifyToken, login, verifyLoginStatus } = require('../middlewares/auth')
 const { adminIndexView, notAuth, admin_login_get, homeIndexView, aboutIndexView, experiencesIndexView, homeUpdate, aboutUpdate } = require('../controllers/admin')
 const { skillsIndexView, newSkill, skillUpdate, skillDelete } = require('../controllers/skill')
@@ -18,6 +18,8 @@ router.post('/review/new', newReview)
 router.get('/review/:review_id/manage', reviewDashboard)
 router.post('/review/update', reviewUpdate)
 router.post('/review/delete', reviewDelete)
+
+router.post('/contact', contact)
 
 // admin
 router.get('/admin/dashboard', verifyLoginStatus, adminIndexView)
