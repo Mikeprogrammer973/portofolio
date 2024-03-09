@@ -87,22 +87,6 @@ const AdminSchema = new mongoose.Schema({
                         required: true
                     }
                 }
-            },
-            occupation: {
-                type: [{
-                    icon: {
-                        type: String,
-                        required: true
-                    },
-                    name: {
-                        type: String,
-                        required: true
-                    },
-                    details: {
-                        type: String,
-                        required: true
-                    }
-                }]
             }
         },
         required: true

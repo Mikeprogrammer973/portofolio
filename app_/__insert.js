@@ -6,12 +6,12 @@ const Admin = require('./models/admin');
 dotenv.config();
 
 // Mongo DB conncetion
-const database = ''
+const database = ""
 mongoose.connect(database)
 .then(async () => {
 
     const adm = new Admin({
-        key: "",
+        key: '',
         access: "000",
         password: "000",
         token: "000",
@@ -54,24 +54,7 @@ mongoose.connect(database)
             about: {
                 icon: "https://cdn-icons-png.flaticon.com/512/10438/10438224.png",
                 content: "I am an highly motivated and detail-oriented web developer with over 2 years of experience in developing responsive websites and applications. I love to work in groups where everyone can voice their opinions and ideas."
-            },
-            occupation: [
-                {
-                    icon: "https://www.shareicon.net/download/2015/10/06/112788_design_512x512.png",
-                    name: "UI UX Design",
-                    details: "Seamless and meaningful user experience, intuitive and aesthetically-pleasing interfaces and interactive elements."
-                },
-                {
-                    icon: "https://cdn-icons-png.freepik.com/512/9517/9517119.png",
-                    name: "Web Development",
-                    details: "From developing a simple single static page of plain text to complex web applications, electronic businesses, and social network services."
-                },
-                {
-                    icon: "https://cdn0.iconfinder.com/data/icons/elpis/144/App_Development-512.png",
-                    name: "App Development",
-                    details: "Software for smartphones, tablets and digital assistants, most commonly for the Android and iOS operating systems."
-                }
-            ]
+            }
         },
         navigation: {
             menu: ["Home", "About", "Skills", "Experiences", "Contact"],

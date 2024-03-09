@@ -60,7 +60,7 @@
                 reader.readAsDataURL(files[0])
 
             }else{
-                document.getElementById('client_photo').src = ""
+                document.getElementById('client_photo').src = "data:<%= review.client.photo.tipo %>;base64,<%= review.client.photo.data %>"
             }
         })
     </script>

@@ -1,10 +1,18 @@
 const Admin = require("../models/admin")
+const Education = require("../models/education")
 const Occupation = require("../models/occupation")
+const Project = require("../models/project")
+const Review = require("../models/review")
+const Skill = require("../models/skill")
 const { sendMail } = require("../utils/mail")
 
 const webIndexView = async (req, res)=>{
     Admin.findOne({key: process.env.ADM_KEY}).then(async (admin)=>{
-        res.render('portofolio', {admin: (admin != null ? admin : {}), occupations: (await Occupation.find())})
+        const educations = (await Education.find())
+        const projects = (await Project.find())
+        const reviews = (await Review.find())
+        const skills = (await Skill.find())
+        res.render('portofolio', {admin: admin, occupations: (await Occupation.find()), educations: educations, projects: projects, reviews: reviews, skills: skills})
     })
 }
 

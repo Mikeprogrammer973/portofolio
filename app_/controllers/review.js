@@ -13,7 +13,7 @@ const reviewDashboard = async (req, res)=>{
     {
        res.render('review/dashboard', { review: review }) 
     }else{
-        res.render('system_notice/route_not_auth')
+        res.render('system_notice/review_404')
     }
 }
 
@@ -38,9 +38,9 @@ const newReview = async (req, res)=>{
         const msg = `
             <div style="padding: 20px;background-color: inherit;">
                 <div style="background-color: whitesmoke; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; padding: 10px;color:white;">
-                <p style="color: green; font-weight: bold;font-size: 1.5rem; padding: 5px;">Hello ${review.client.name}, processing of your review is in progress. Click on the link below to track its status and manage it.</p>
+                <p style="color: green; font-weight: lighter;font-size: 1.5rem; padding: 5px;">Hello ${review.client.name}, processing of your review is in progress. Click on the link below to track its status and manage it.</p>
                 <p style="font-weight: bold; padding: 5px; color: darkgray; font-size: 1.2rem;">
-                    <a href="${global.dev ? 'http://localhost:3000' : 'https://mike-d-pascal.onrender.com'}/profile/review/${review._id}/manage">Here</a>
+                    <a href="${global.dev ? 'http://localhost:3000' : 'https://mike-d-pascal.onrender.com'}/profile/review/${review._id}/manage">Click here!</a>
                 </p>
                 </div>
             </div>
