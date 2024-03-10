@@ -24,7 +24,7 @@
                 <p class="flex items-center justify-center">
                     <abbr title="Click to select your photo"><label class="flex items-center justify-center" for="photo">
                         <img src="data:<%= review.client.photo.tipo %>;base64,<%= review.client.photo.data %>" alt="client_photo" id="client_photo" class="size-32 rounded-full p-1 border-2 border-white m-2">
-                        <input class="w-1 h-1 opacity-0" type="file" name="photo" id="photo">
+                        <input class="w-1 h-1 opacity-0" type="file" name="photo" accept=".png" id="photo">
                     </label></abbr>
                 </p>
                 <p>
