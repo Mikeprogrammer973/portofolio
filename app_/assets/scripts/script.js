@@ -39,22 +39,22 @@ window.addEventListener('hashchange', ()=>{
     set_menu_item()
 })
 
-window.addEventListener('scroll', ()=>{
-    navigation.forEach(item => {
-        if(window.scrollY >= document.getElementById(`${item}`).offsetTop && window.scrollY <= (document.getElementById(`${item}`).offsetTop + document.getElementById(`${item}`).offsetHeight))
-        {
-            if(window.location.href.split('#')[1] != item)
-            {
-                window.history.pushState(0, 0, `#${item}`)
-                document.getElementById(`${item}`).style.animation = 'teste 2s linear infinite'
-                setTimeout(()=>{
-                    document.getElementById(`${item}`).style.animation = 'none'
-                }, 2000)
-                set_menu_item()
-            }
-        }
-    })
-})
+// window.addEventListener('scroll', ()=>{
+//     navigation.forEach(item => {
+//         if(window.scrollY >= document.getElementById(`${item}`).offsetTop && window.scrollY <= (document.getElementById(`${item}`).offsetTop + document.getElementById(`${item}`).offsetHeight))
+//         {
+//             if(window.location.href.split('#')[1] != item)
+//             {
+//                 window.history.pushState(0, 0, `#${item}`)
+//                 document.getElementById(`${item}`).style.animation = 'teste 2s linear infinite'
+//                 setTimeout(()=>{
+//                     document.getElementById(`${item}`).style.animation = 'none'
+//                 }, 2000)
+//                 set_menu_item()
+//             }
+//         }
+//     })
+// })
 
 document.querySelectorAll('.toggle-theme-btn').forEach(el => {
     el.addEventListener('click', ()=>{
