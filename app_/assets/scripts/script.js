@@ -24,12 +24,12 @@ function set_menu_item()
             el.style.fontWeight = "normal"
             if(item == window.location.href.split('#')[1])
             {
-                let color = "#0b48a3b7"
+                /*let color = "#0b48a3b7"
                 if(document.body.getAttribute('class') == 'dark') color = "#5984c4b7"
                 el.style.borderBottom = "3px solid " + color
                 el.style.color = color
                 el.style.fontWeight = "bold"
-                document.getElementsByTagName('title')[0].innerHTML = `Mike D. Pascal - ${el.children[0].innerHTML}`
+                document.getElementsByTagName('title')[0].innerHTML = `Mike D. Pascal - ${el.children[0].innerHTML}`*/
             }
         })
     })
