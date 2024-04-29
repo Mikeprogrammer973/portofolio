@@ -20,7 +20,7 @@
   <img align="center" alt="Rafa-Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg">
   <img align="center" alt="Rafa-React" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-original.svg">
   <img align="center" alt="Rafa-Csharp" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg">
-  <img align="right" alt="Rafa-Csharp" height="220" width="220" src="http://live-s3-bucket-sjwburhj9xhf.cdn.live.tandem.net/1c/57/270d77b8f6e40b259ddaeecae86a8217.jpg">
+  <!--<img align="right" alt="Rafa-Csharp" height="220" width="220" src="http://live-s3-bucket-sjwburhj9xhf.cdn.live.tandem.net/1c/57/270d77b8f6e40b259ddaeecae86a8217.jpg">-->
 </div>
   
   ##
